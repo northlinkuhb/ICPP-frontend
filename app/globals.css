@@ -1,0 +1,199 @@
+@import "tailwindcss";
+@plugin "tailwind-clamp" {
+  minSize: 320px;
+  maxSize: 1920px;
+}
+
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+
+}
+
+@theme {
+  --font-geist-sans: var(--font-geist-sans);
+  --font-geist-mono: var(--font-geist-mono);
+
+  --color-deep-blue: #002B5E;
+  --color-red: #BC173B;
+  --color-electric-blue: #1893C9;
+  --color-black: #131516;
+  --color-white: #FFFFFF;
+
+  --color-light-blue: #C1DEEB;
+  --color-gray: #898F92;
+  --color-light-gray: #AEB6B9;
+
+  --text-h1-d: 64px;
+  --leading-h1-d: 70px;
+  
+  --text-h2-d: 56px;
+  --leading-h2-d: 64px;
+
+  --text-h3-d: 36px;
+  --leading-h3-d: 47px;
+
+  --text-h4-d: 24px;
+  --leading-h4-d: 30px;
+
+  --text-body1-d: 24px;
+  --leading-body1-d: 30px;
+
+  --text-body2-d: 20px;
+  --leading-body2-d: 30px;
+
+  --text-body3-d: 16px;
+  --leading-body3-d: 25px;
+
+  --text-caption-1-d: 14px;
+  --leading-caption1-d: 18px;
+
+  --text-caption2-d: 16px;
+  --leading-caption2-d: 21px;
+
+  --text-button-d: 16px;
+  --leading-button-d: 25px;
+
+  --text-h1-m: 28px;
+  --leading-h1-m: 36px;
+
+  --text-h2-m: 24px;
+  --leading-h2-m: 31px;
+
+  --text-h3-m: 18px;
+  --leading-h3-m: 25px;
+
+  --text-h4-m: 16px;
+  --leading-h4-m: 23px;
+
+  --text-body1-m: 16px;
+  --leading-body1-m: 23px;
+
+  --text-body2-m: 14px;
+  --leading-body2-m: 20px;
+
+  --text-body3-m: 12px;
+  --leading-body3-m: 18px;
+
+  --text-caption1-m: 11px;
+  --leading-caption1-m: 14px;
+
+  --text-caption2-m: 11px;
+  --leading-caption2-m: 14px;
+
+  --text-button-m: 12px;
+  --leading-button-m: 18px;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  background: white;
+  color: var(--foreground);
+  /* font-family: var(--font-family-geist) */
+}
+
+/* Hide scrollbars but keep scroll behavior */
+.no-scrollbar {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera */
+}
+
+/* Text size utilities */
+.text-h1 {
+  font-size: var(--h1-d);
+}
+
+.text-h2 {
+  font-size: var(--h2-d);
+}
+
+.text-h3 {
+  font-size: var(--h3-d);
+}
+
+.text-h4 {
+  font-size: var(--h4-d);
+}
+
+.text-body1 {
+  font-size: var(--body1-d);
+}
+
+.text-body2 {
+  font-size: var(--body2-d);
+}
+
+.text-body3 {
+  font-size: var(--body3-d);
+}
+
+.text-caption1 {
+  font-size: var(--caption1-d);
+}
+
+.text-caption2 {
+  font-size: var(--caption2-d);
+}
+
+.text-button {
+  font-size: var(--button-d);
+}
+
+@media (max-width: 768px) {
+  .text-h1 {
+    font-size: var(--h1-m);
+  }
+
+  .text-h2 {
+    font-size: var(--h2-m);
+  }
+
+  .text-h3 {
+    font-size: var(--h3-m);
+  }
+
+  .text-h4 {
+    font-size: var(--h4-m);
+  }
+
+  .text-body1 {
+    font-size: var(--body1-m);
+  }
+
+  .text-body2 {
+    font-size: var(--body2-m);
+  }
+
+  .text-body3 {
+    font-size: var(--body3-m);
+  }
+
+  .text-caption1 {
+    font-size: var(--caption1-m);
+  }
+
+  .text-caption2 {
+    font-size: var(--caption2-m);
+  }
+
+  .text-button {
+    font-size: var(--button-m);
+  }
+}
