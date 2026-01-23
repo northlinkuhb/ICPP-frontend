@@ -8,7 +8,7 @@ const SvgComponent = (props: SVGProps<SVGSVGElement>) => (
     fill="none"
     {...props}
   >
-    <g opacity={0.3}>
+    <g >
       <mask
         id="a"
         width={24}
