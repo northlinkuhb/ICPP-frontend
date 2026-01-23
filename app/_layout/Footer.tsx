@@ -73,7 +73,7 @@ const Footer = () => {
         <div className="bg-deep-blue clamp-[h,40px,80px] clamp-[rounded-tl,20px,40px]"></div>
       </div>
       <div className="flex md:flex-row flex-col clamp-[px,24px,80px] mt-[-1px] clamp-[pt,0px,80px] clamp-[pb,24px,80px]  bg-deep-blue clamp-[gap,40px,100px]">
-        <div className="md:w-[30%] flex flex-col justify-between">
+        <div className="md:w-[35%] flex flex-col justify-between">
           <div className="">
             <Image
               src={logo}
@@ -86,7 +86,7 @@ const Footer = () => {
               intersection of rigour and relevance, building pathways for
               knowledge to converge, travel, inform, and transform.
             </div>
-            <div className="mt-[32px] max-md:hidden md:pr-[3rem]">
+            <div className="mt-[32px] max-md:hidden md:clamp-[pr,1rem,5rem]">
               <p className="mb-[16px] clamp-[text,body3-m,body3-d] clamp-[leading,body3-m,body3-d]">
                 Subscribe to our newsletter
               </p>
@@ -96,7 +96,7 @@ const Footer = () => {
                   placeholder="Email"
                   className="w-full clamp-[h,44px,56px] clamp-[px,12px,18px] clamp-[py,12px,15px] clamp-[text,14px,16px] outline-0  border border-white bg-transparent placeholder:text-white "
                 />
-                <div className="bg-red clamp-[p,10px,16px]">
+                <div className="bg-red  clamp-[p,10px,16px]">
                   <RightArrow fill="white" />
                 </div>
               </div>
@@ -123,7 +123,7 @@ const Footer = () => {
           </div>
         </div>
 
-        <div className="2xl:w-[50%] flex flex-col justify-between md:w-[70%]">
+        <div className="flex flex-col justify-between md:w-[65%]">
           <div className="grid grid-cols-1 lg:grid-cols-4 clamp-[gap,8px,40px] ">
             {/* Our Work */}
             <FooterMenuList
@@ -205,16 +205,11 @@ const Footer = () => {
               Terms of Use
             </Link>
           </div>
-          <div className="md:text-right 2xl:w-[20%] 2xl:hidden max-md:pt-[2rem]  clamp-[text,body3-m,body3-d] clamp-[leading,body3-m,body3-d]">
+          <div className="md:text-right max-md:pt-[2rem]  text-white clamp-[text,body3-m,body3-d] clamp-[leading,body3-m,body3-d]">
             ©2024-25 Isacc Centre for Public Policy
             <br />
             Designed with 🤍 by Sane Difference
           </div>
-        </div>
-        <div className="text-right 2xl:w-[20%] max-2xl:hidden  clamp-[text,body3-m,body3-d] clamp-[leading,body3-m,body3-d]">
-          ©2024-25 Isacc Centre for Public Policy
-          <br />
-          Designed with 🤍 by Sane Difference
         </div>
       </div>
     </div>
