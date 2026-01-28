@@ -1,10 +1,12 @@
+"use client";
 import React from "react";
 import Image from "next/image";
-import leader1 from "../../public/leaders/asis.png";
-import leader2 from "../../public/leaders/leader2.png";
-import leader3 from "../../public/leaders/leader3.png";
+import leader1 from "@public/leaders/asis.png";
+import leader2 from "@public/leaders/leader2.png";
+import leader3 from "@public/leaders/leader3.png";
 import RightArrow from "@/components/svg/RightArrow";
 import LeftArrow from "@/components/svg/LeftArrow";
+import AuthorCard from "@/components/ui/AuthorCard";
 
 const LeaderSection: React.FC = () => {
   const leadersData = [
@@ -71,26 +73,7 @@ const LeaderSection: React.FC = () => {
             </div>
           </div>
         </div>
-        <div className="clamp-[pt,24px,40px] grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 clamp-[gap,14px,20px]">
-          {leadersData.map((leader, index) => (
-            <div key={index} className="flex flex-row gap-[20px]">
-              <Image
-                src={leader.src}
-                alt={leader.alt}
-                className="clamp-[size,90px,159.33px] clamp-[rounded-br,10px,20px]"
-                priority
-              />
-              <div>
-                <div className="text-deep-blue clamp-[text,h4-m,h4-d] clamp-[leading,h4-m,h4-d] font-semibold">
-                  {leader.name}
-                </div>
-                <div className="clamp-[text,body3-m,body3-d] clamp-[leading,body3-m,body3-d]">
-                  {leader.title}
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
+        <AuthorCard leadersData={leadersData} />
         <div className="lg:hidden flex justify-between items-center mt-[14px]">
           <div className="flex gap-[8px]">
             <LeftArrow fill="gray" />

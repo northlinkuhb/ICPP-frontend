@@ -17,14 +17,20 @@ import {
 import Autoplay from "embla-carousel-autoplay";
 
 const GallerySection: React.FC = () => {
-  const galleryImages = [gallery1, gallery2, gallery3, gallery4, gallery5, gallery6];
+  const galleryImages = [
+    gallery1,
+    gallery2,
+    gallery3,
+    gallery4,
+    gallery5,
+    gallery6,
+  ];
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const plugin = React.useRef<any>(
-    Autoplay({ delay: 3000, stopOnInteraction: true })
+    Autoplay({ delay: 3000, stopOnInteraction: true }),
   );
 
-  
   return (
     <div className="bg-black clamp-[py,40px,120px] clamp-[rounded-bl,20px,40px]">
       <div className="text-white clamp-[pb,4px,10px] clamp-[px,24px,80px] font-geist-mono clamp-[text,caption2-m,caption2-d] clamp-[leading,caption2-m,caption2-d]">
@@ -39,16 +45,21 @@ const GallerySection: React.FC = () => {
           View All
         </div>
       </div>
-      <Carousel plugins={[plugin.current]}
+      <Carousel
+        plugins={[plugin.current]}
         // onMouseEnter={plugin.current.stop}
         // onMouseLeave={plugin.current.reset}
         opts={{
           align: "start",
           loop: true,
-        }}>
+        }}
+      >
         <CarouselContent className="clamp-[ml,24px,80px] flex clamp-[h,297px,550px]">
           {galleryImages.map((image, index) => (
-            <CarouselItem key={index} className="basis-auto clamp-[mr,16px,20px]">
+            <CarouselItem
+              key={index}
+              className="basis-auto clamp-[mr,16px,20px]"
+            >
               <Image
                 src={image}
                 alt={`gallery-${index + 1}`}
@@ -58,10 +69,9 @@ const GallerySection: React.FC = () => {
             </CarouselItem>
           ))}
         </CarouselContent>
-        <div className="pt-[20px] flex gap-[8px] clamp-[px,24px,80px]">
+        <div className="pt-[20px] flex gap-[18px] clamp-[px,24px,80px]">
           <CarouselPrevious aria-label="Scroll left"></CarouselPrevious>
-          <CarouselNext aria-label="Scroll right">
-          </CarouselNext>
+          <CarouselNext aria-label="Scroll right"></CarouselNext>
         </div>
       </Carousel>
     </div>

@@ -23,10 +23,10 @@ const InsightSection = ({ insightData }: InsightSectionProps) => {
         viewAllLink="#"
       />
 
-      <div className="clamp-[mt,24px,40px] grid grid-cols-1 lg:grid-cols-3 clamp-[gap,16px,20px]">
+      <div className="clamp-[mt,24px,40px] grid grid-cols-1 md:grid-cols-2  lg:grid-cols-3 clamp-[gap,16px,20px]">
         {insightData.map((insight, index) => (
           <div key={index}>
-            <div className="relative w-full clamp-[h,204px,310px] overflow-hidden rounded">
+            <div className="relative w-full clamp-[h,204px,310px] overflow-hidden ">
               <iframe
                 className="absolute inset-0 w-full h-full"
                 src={`https://www.youtube.com/embed/${insight.videoId}`}

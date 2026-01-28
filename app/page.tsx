@@ -10,7 +10,7 @@ import research2 from "../public/research/research3.png";
 import research4 from "../public/research/research4.png";
 import PromoSection from "./_components/PromoSection";
 import InsightSection from "./_components/InsightSection";
-import MainEventSection from "./_components/MainEventSection";
+import MainEventSection from "../components/ui/MainEventSection";
 import MediaSection from "./_components/MediaSection";
 import { mediaData } from "./_data/media";
 import { heroSlides } from "./_data/hero";

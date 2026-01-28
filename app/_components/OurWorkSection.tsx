@@ -41,9 +41,9 @@ const OurWorkSection: React.FC<OurWorkSectionProps> = ({
               View All
             </div>
           </div>
-          <div className="flex gap-[8px]">
-            <LeftArrow fill="light" />
-            <RightArrow fill="black" />
+          <div className="flex text-black gap-[18px]">
+            <LeftArrow />
+            <RightArrow />
           </div>
         </div>
       </div>
@@ -70,9 +70,9 @@ const OurWorkSection: React.FC<OurWorkSectionProps> = ({
               View All
             </div>
           </div>
-          <div className="flex gap-[8px]">
-            <LeftArrow fill="light" />
-            <RightArrow fill="black" />
+          <div className="flex gap-[18px] text-black">
+            <LeftArrow />
+            <RightArrow />
           </div>
         </div>
       </div>

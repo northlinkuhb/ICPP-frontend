@@ -1,5 +1,6 @@
 "use client";
 import Image from "next/image";
+import Link from "next/link";
 import React, { useEffect, useRef, useState } from "react";
 import logo from "../../public/svg/logo_white.svg";
 import logoColor from "../../public/svg/logo_color.svg";
@@ -32,6 +33,7 @@ const SearchListItem: React.FC<SearchListItemProps> = ({ label }) => (
 type LargeMenuItem = {
   label: string;
   description: string;
+  link: string;
 };
 
 type LargeMenuListProps = {
@@ -62,7 +64,7 @@ const LargeMenuList: React.FC<LargeMenuListProps> = ({ label, items }) => {
       <button
         type="button"
         onClick={() => setIsOpen((prev) => !prev)}
-        className="flex items-center gap-[4px]"
+        className="flex items-center cursor-pointer gap-[4px]"
         aria-haspopup="true"
         aria-expanded={isOpen}
       >
@@ -74,14 +76,15 @@ const LargeMenuList: React.FC<LargeMenuListProps> = ({ label, items }) => {
       >
         <ul className="flex flex-col gap-[12px] clamp-[text,body2-m,body2-d] clamp-[leading,body2-m,body2-d]">
           {items.map((item) => (
-            <li
-              key={item.label}
-              className="cursor-pointer p-[10px] rounded-[4px] hover:bg-gray-100"
-            >
-              <div className="mb-[5px]">{item.label}</div>
-              <div className="text-light-gray clamp-[text,body3-m,body3-d] clamp-[leading,body3-m,body3-d]">
-                {item.description}
-              </div>
+            <li key={item.label}>
+              <Link onClick={() => setIsOpen(false)} href={item.link}>
+                <div className="cursor-pointer p-[10px] rounded-[4px] hover:bg-gray-100">
+                  <div className="mb-[5px]">{item.label}</div>
+                  <div className="text-light-gray clamp-[text,body3-m,body3-d] clamp-[leading,body3-m,body3-d]">
+                    {item.description}
+                  </div>
+                </div>
+              </Link>
             </li>
           ))}
         </ul>
@@ -104,17 +107,18 @@ const Header = () => {
 
   return (
     <div
-      className={`${isScroll ? "bg-black clamp-[py,20px,24px]" : "bg-transparent clamp-[py,32px,40px]"} top fixed top-0 right-0 left-0 z-[500]  clamp-[px,24px,80px] flex justify-between duration-500 transition-colors ease-in-out`}
+      className={`${isScroll ? "bg-black clamp-[py,20px,24px]" : "bg-transparent clamp-[py,32px,40px]"} top fixed top-0 right-0 left-0 z-[500]  clamp-[px,24px,80px] flex justify-between duration-500 transition-all ease-in-out`}
     >
-      <Image
-        src={logo}
-        alt="icpp-logo"
-        className={`${isScroll ? "clamp-[w,106px,222px] clamp-[h,32px,60px]" : "clamp-[w,106px,232px] clamp-[h,32px,70px]"} duration-500 transition-all ease-in-out`}
-        priority
-      />
+      <Link href={"/"}>
+        <Image
+          src={logo}
+          alt="icpp-logo"
+          className={`${isScroll ? "clamp-[w,106px,222px] clamp-[h,32px,60px]" : "clamp-[w,106px,232px] clamp-[h,32px,70px]"} duration-500 transition-all ease-in-out`}
+          priority
+        />
+      </Link>
       <div className="flex clamp-[gap,10px,40px] items-center text-white">
         <div className="lg:flex hidden items-center font-normal clamp-[gap,20px,40px] text-white clamp-[text,body2-m,body2-d] clamp-[leading,body2-m,body2-d]">
-          {/* Our Work desktop dropdown */}
           <LargeMenuList
             label="Our Work"
             items={[
@@ -122,15 +126,17 @@ const Header = () => {
                 label: "Research",
                 description:
                   "Rigorous, data-driven policy research informing India’s economic decisions.",
+                link: "/research",
               },
               {
                 label: "Policy",
                 description:
-                  "ICPP’s accessible policy outputs translating research into practical, evidence-based decisions.",
+                  "ICPP's accessible policy outputs translating research into practical, evidence-based decisions.",
+                link: "/policy",
               },
             ]}
           />
-          <div>Insights</div>
+          <Link href={"/insights"}>Insights</Link>
           <LargeMenuList
             label="About Us"
             items={[
@@ -138,11 +144,13 @@ const Header = () => {
                 label: "Our Story",
                 description:
                   "ICPP operates at the nexus of research, education, and policymaking.",
+                link: "/about-us/our-story",
               },
               {
                 label: "Life at ICPP",
                 description:
                   "Inside the people, places, and moments shaping our work in public policy.",
+                link: "/about-us/life-at-icpp",
               },
             ]}
           />
@@ -153,17 +161,19 @@ const Header = () => {
                 label: "Events at ICPP",
                 description:
                   "ICPP’s events convene voices and ideas at the intersection of research, policy, and public discourse.",
+                link: "/events",
               },
               {
                 label: "The ICPP Conference: A Summit of Ideas",
                 description:
-                  "Bringing policymakers, academics, and practitioners together to discuss India’s growth strategy.",
+                  "Bringing policymakers, academics, and practitioners together to discuss India's growth strategy.",
+                link: "/events/conference",
               },
             ]}
           />
-          <div>Contact Us</div>
+          <Link href={"/contact-us"}>Contact Us</Link>
         </div>
-        {/* Desktop search trigger */}
+
         <button
           type="button"
           onClick={() => setIsSearchOpen(true)}

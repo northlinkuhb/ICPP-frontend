@@ -9,7 +9,6 @@ export default function Preloader() {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-
     const isFirstVisit = localStorage.getItem("visited") === null;
 
     if (isFirstVisit) {
@@ -20,12 +19,11 @@ export default function Preloader() {
       () => {
         setIsLoading(false);
       },
-      isFirstVisit ? 2000 : 1500,
+      isFirstVisit ? 2000 : 0,
     );
 
     return () => clearTimeout(timer);
   }, []);
-
 
   return (
     <AnimatePresence mode="wait">

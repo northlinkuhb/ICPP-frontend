@@ -8,8 +8,6 @@ import { cn } from "../utils/tailwind";
 import LeftArrow from "../svg/LeftArrow";
 import RightArrow from "../svg/RightArrow";
 
-
-
 type CarouselApi = UseEmblaCarouselType[1];
 type UseCarouselParameters = Parameters<typeof useEmblaCarousel>;
 type CarouselOptions = UseCarouselParameters[0];
@@ -57,14 +55,14 @@ const Carousel = React.forwardRef<
       children,
       ...props
     },
-    ref
+    ref,
   ) => {
     const [carouselRef, api] = useEmblaCarousel(
       {
         ...opts,
         axis: orientation === "horizontal" ? "x" : "y",
       },
-      plugins
+      plugins,
     );
     const [canScrollPrev, setCanScrollPrev] = React.useState(false);
     const [canScrollNext, setCanScrollNext] = React.useState(false);
@@ -96,7 +94,7 @@ const Carousel = React.forwardRef<
           scrollNext();
         }
       },
-      [scrollPrev, scrollNext]
+      [scrollPrev, scrollNext],
     );
 
     React.useEffect(() => {
@@ -147,7 +145,7 @@ const Carousel = React.forwardRef<
         </div>
       </CarouselContext.Provider>
     );
-  }
+  },
 );
 Carousel.displayName = "Carousel";
 
@@ -164,7 +162,7 @@ const CarouselContent = React.forwardRef<
         className={cn(
           "flex",
           orientation === "horizontal" ? "" : "-mt-4 flex-col",
-          className
+          className,
         )}
         {...props}
       />
@@ -187,7 +185,7 @@ const CarouselItem = React.forwardRef<
       className={cn(
         "min-w-0 shrink-0 grow-0 basis-full",
         orientation === "horizontal" ? "" : "pt-4",
-        className
+        className,
       )}
       {...props}
     />
@@ -205,10 +203,10 @@ const CarouselPrevious = React.forwardRef<
     <div
       ref={ref}
       onClick={scrollPrev}
-      className="~size-[2.5rem]/[4rem] relative flex items-center text-white"
+      className="~size-[2.5rem]/[4rem] cursor-pointer relative flex items-center "
       {...props}
     >
-      <LeftArrow fill="gray"/>
+      <LeftArrow />
     </div>
   );
 });
@@ -224,10 +222,10 @@ const CarouselNext = React.forwardRef<
     <div
       ref={ref}
       onClick={scrollNext}
-      className="~size-[2.5rem]/[4rem] "
+      className="~size-[2.5rem]/[4rem]  cursor-pointer relative flex items-center  "
       {...props}
     >
-      <RightArrow fill="white"/>
+      <RightArrow />
     </div>
   );
 });
