@@ -2,15 +2,15 @@
 import React from "react";
 import { StaticImageData } from "next/image";
 import Hero from "../_components/Hero";
-import lifeAtIcpp from "../../../public/life-at-icpp.png";
+import lifeAtIcpp from "@public/life-at-icpp.png";
 import second from "@public/png/Vector.png";
 import Image from "next/image";
-import gallery1 from "../../../public/gallery/gallery-potrait.png";
-import gallery2 from "../../../public/gallery/gallery-landscape.png";
-import gallery3 from "../../../public/gallery/gallery3.png";
-import gallery4 from "../../../public/gallery/gallery4.png";
-import gallery5 from "../../../public/gallery/gallery5.png";
-import gallery6 from "../../../public/gallery/gallery6.png";
+import gallery1 from "@public/gallery/gallery-potrait.png";
+import gallery2 from "@public/gallery/gallery-landscape.png";
+import gallery3 from "@public/gallery/gallery3.png";
+import gallery4 from "@public/gallery/gallery4.png";
+import gallery5 from "@public/gallery/gallery5.png";
+import gallery6 from "@public/gallery/gallery6.png";
 import {
   Carousel,
   CarouselContent,
@@ -18,8 +18,8 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/Carousel";
-import whoweare from "../../../public/png/testimonial.png";
-import GallerySection from "@/components/GallerySection";
+import whoweare from "@public/png/testimonial.png";
+import GallerySection from "@/components/GalleryCarouselSection";
 
 const testimonialLists = [
   {

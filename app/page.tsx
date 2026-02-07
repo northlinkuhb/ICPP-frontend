@@ -14,7 +14,8 @@ import MainEventSection from "../components/ui/MainEventSection";
 import MediaSection from "./_components/MediaSection";
 import { mediaData } from "./_data/media";
 import { heroSlides } from "./_data/hero";
-const page = () => {
+import { HomeApi } from "@/network/api/home.api";
+const page = async () => {
   const insightData = [
     {
       videoId: "DSfBnpr44PQ",
@@ -43,54 +44,9 @@ const page = () => {
     },
   ];
 
-  const policyData = [
-    {
-      image: research4,
-      alt: "research-1",
-      title: "Temperature Shocks in Early-Life and Long-run Health Outcomes",
-      published_by: "Aparajita Dasgupta",
-      date: "22 November, 2025",
-    },
-    {
-      image: research2,
-      alt: "research-2",
-      title:
-        "Laws Mandating Prevention of Sexual Harassment at Workplace and Female Employment",
-      published_by: "Kanika Mahajan ",
-      date: "01 November, 2025",
-    },
-    {
-      image: research3,
-      alt: "research-3",
-      title: "Economic Effects of Renewable Energy Adoption",
-      published_by: "Emily Johnson",
-      date: "10 January, 2026",
-    },
-  ];
-  const researchData = [
-    {
-      image: research1,
-      alt: "research-1",
-      title: "Temperature Shocks in Early-Life and Long-run Health Outcomes",
-      published_by: "Aparajita Dasgupta",
-      date: "22 November, 2025",
-    },
-    {
-      image: research2,
-      alt: "research-2",
-      title:
-        "Laws Mandating Prevention of Sexual Harassment at Workplace and Female Employment",
-      published_by: "Kanika Mahajan ",
-      date: "01 November, 2025",
-    },
-    {
-      image: research3,
-      alt: "research-3",
-      title: "Economic Effects of Renewable Energy Adoption",
-      published_by: "Emily Johnson",
-      date: "10 January, 2026",
-    },
-  ];
+  
+
+  const homepageApiData = await HomeApi.getHomePageData();
 
   return (
     <>
@@ -100,13 +56,13 @@ const page = () => {
       <WhoAndWhatSection />
 
       {/* Our Work Section */}
-      <OurWorkSection policyData={policyData} researchData={researchData} />
+      <OurWorkSection policyData={homepageApiData.policies} researchData={homepageApiData.researches} />
 
       {/* Image Gallery */}
       <GallerySection />
 
       {/* Leaders of ICPP */}
-      <LeaderSection />
+      <LeaderSection advisoriesData={homepageApiData.advisories} />
 
       {/* Promo grid */}
       <PromoSection />

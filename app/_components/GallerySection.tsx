@@ -21,6 +21,7 @@ const GallerySection: React.FC = () => {
     gallery1,
     gallery2,
     gallery3,
+    gallery3,
     gallery4,
     gallery5,
     gallery6,
@@ -32,6 +33,8 @@ const GallerySection: React.FC = () => {
   );
 
   return (
+    <>
+
     <div className="bg-black clamp-[py,40px,120px] clamp-[rounded-bl,20px,40px]">
       <div className="text-white clamp-[pb,4px,10px] clamp-[px,24px,80px] font-geist-mono clamp-[text,caption2-m,caption2-d] clamp-[leading,caption2-m,caption2-d]">
         {"Image Gallery".toUpperCase()}
@@ -75,6 +78,7 @@ const GallerySection: React.FC = () => {
         </div>
       </Carousel>
     </div>
+    </>
   );
 };
 

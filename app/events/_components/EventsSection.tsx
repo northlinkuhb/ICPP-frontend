@@ -1,16 +1,23 @@
 "use client";
 import Tab from "@/components/Tab";
 import React, { useState } from "react";
+import { useRouter } from "next/navigation";
 
-const EventsSection = () => {
-  const [activeTab, setActiveTab] = useState("upcoming-events");
+interface EventsSectionProps {
+  initialActiveTab?: string;
+}
+
+const EventsSection = ({ initialActiveTab = "upcoming-event" }: EventsSectionProps) => {
+  const [activeTab, setActiveTab] = useState(initialActiveTab);
+  const router = useRouter();
 
   const tabs = [
-    { name: "Upcoming Events", label: "upcoming-events" },
+    { name: "Upcoming Events", label: "upcoming-event" },
     { name: "Past Events", label: "past-events" },
   ];
   const handleTabChange = (label: string) => {
     setActiveTab(label);
+    router.push(`/events/${label}`);
   };
   return (
     <div className="clamp-[px,1.5rem,5rem] clamp-[py,2.5rem,7.5rem]">

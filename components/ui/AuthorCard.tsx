@@ -3,24 +3,19 @@ import React, { useState } from "react";
 import Image, { StaticImageData } from "next/image";
 import LinkedIn from "../svg/LinkedIn";
 import LinkArrow from "../svg/LinkArrow";
+import { TAdvisoryCard } from "@/network/types/home.type";
 
-type Leader = {
-  src: string | StaticImageData;
-  alt: string;
-  name: string;
-  title: string;
-};
 
 type AuthorCardProps = {
-  leadersData?: Leader[];
-  onLeaderClick?: (leader: Leader) => void;
+  leadersData?: TAdvisoryCard[];
+  onLeaderClick?: (leader: TAdvisoryCard) => void;
 };
 
 const AuthorCard = ({ leadersData = [], onLeaderClick }: AuthorCardProps) => {
-  const [selectedLeader, setSelectedLeader] = useState<Leader | null>(null);
+  const [selectedLeader, setSelectedLeader] = useState<TAdvisoryCard | null>(null);
   const [isSlideOpen, setIsSlideOpen] = useState(false);
 
-  const openSlide = (leader: Leader) => {
+  const openSlide = (leader: TAdvisoryCard) => {
     setSelectedLeader(leader);
     setIsSlideOpen(true);
     document.body.style.overflow = 'hidden';
@@ -41,17 +36,18 @@ const AuthorCard = ({ leadersData = [], onLeaderClick }: AuthorCardProps) => {
             className="flex flex-row gap-[20px] cursor-pointer hover:opacity-80 transition-opacity text-left"
           >
             <Image
-              src={leader.src}
-              alt={leader.alt}
+              src={leader.imageUrl|| ""}
+              alt={leader.name}
               className="clamp-[size,90px,159.33px] clamp-[rounded-br,10px,20px]"
-              priority
+              width={159}
+              height={159}
             />
             <div>
               <div className="text-deep-blue clamp-[text,h4-m,h4-d] clamp-[leading,h4-m,h4-d] font-semibold">
                 {leader.name}
               </div>
               <div className="text-black clamp-[text,body3-m,body3-d] clamp-[leading,body3-m,body3-d]">
-                {leader.title}
+                {leader.designation}
               </div>
             </div>
           </button>
@@ -86,28 +82,23 @@ const AuthorCard = ({ leadersData = [], onLeaderClick }: AuthorCardProps) => {
             <div className='h-full flex flex-col '>
               <div className='flex items-end clamp-[gap,10px,20px]'>
                 <Image
-                  src={selectedLeader?.src || ''}
-                  alt={selectedLeader?.alt || 'leader'}
+                  src={selectedLeader?.imageUrl || ''}
+                  alt={selectedLeader?.name || 'leader'}
                   className='clamp-[size,160px,280px] object-contain clamp-[rounded-bl,20px,40px] clamp-[rounded-tl,20px,40px]'
-                  priority
+                  width={280}
+                  height={280}
                 />
                 <div>
                   <h2 className='text-deep-blue clamp-[text,h3-m,h3-d] clamp-[leading,h3-m,h3-d] font-semibold'>
                     {selectedLeader?.name}
                   </h2>
                   <p className='text-black clamp-[pt,8px,12px] clamp-[text,body2-m,body2-d] clamp-[leading,body2-m,body2-d]'>
-                    {selectedLeader?.title}
+                    {selectedLeader?.designation}
                   </p>
                 </div>
               </div>
               <div className='clamp-[pt,10px,20px]'>
-                <p className='text-black clamp-[px,24px,40px] clamp-[py,16px,20px] clamp-[pt,16px,24px] clamp-[text,body3-m,body3-d] clamp-[leading,body3-m,body3-d]'>
-                  Lorem ipsum dolor sit amet consectetur. Placerat lorem ac gravida amet velit integer vehicula condimentum. Vitae sit in at viverra pellentesque aliquam pretium vel. Leo lobortis dui donec cras risus ut. Eget magnis maecenas est curabitur dictum tortor. Vel posuere quam ut mauris.<br/>
-Sollicitudin donec ante sagittis massa id. Ante faucibus in dignissim arcu nibh. Quis quam nec hac nulla in lobortis. Morbi tellus habitant mauris aenean dolor id. Nec ullamcorper tortor quam sagittis sed egestas enim egestas. Id odio sit maecenas enim mauris. <br/>
-<br/>
-Lorem ipsum dolor sit amet consectetur. Placerat lorem ac gravida amet velit integer vehicula condimentum. Vitae sit in at viverra pellentesque aliquam pretium vel. Leo lobortis dui donec cras risus ut. Eget magnis maecenas est curabitur dictum tortor. Vel posuere quam ut mauris.
-Sollicitudin donec ante sagittis massa id. Ante faucibus in dignissim arcu nibh. Quis quam nec hac nulla in lobortis. Morbi tellus habitant mauris aenean dolor id. Nec ullamcorper tortor quam sagittis sed egestas enim egestas. Id odio sit maecenas enim mauris. 
-                </p>
+                <div className='text-black clamp-[px,24px,40px] clamp-[py,16px,20px] clamp-[pt,16px,24px] clamp-[text,body3-m,body3-d] clamp-[leading,body3-m,body3-d]' dangerouslySetInnerHTML={{ __html: selectedLeader?.desc || '' }} />
                 <hr className="text-light-gray clamp-[mx,24px,40px]"/>
                 <div className=" flex clamp-[px,24px,40px] clamp-[pt,10px,20px] clamp-[gap,10px,20px] text-black">
                   <LinkedIn fill="gray"/>

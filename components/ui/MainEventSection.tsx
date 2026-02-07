@@ -1,9 +1,19 @@
+"use client";
+
 import React from "react";
 import Image from "next/image";
 import icppEvent from "../../public/icpp-event.png";
 import PrimaryButton from "@/components/PrimaryButton";
 import Vector from "../../public/svg/Vector.svg";
+import { useRouter } from "next/navigation";
+
 const MainEventSection = () => {
+  const router = useRouter();
+
+  const handleReadMore = () => {
+    router.push("/events/upcoming-event/icpp-conference-summit-of-ideas");
+  };
+
   return (
     <div className="grid grid-cols-1 lg:grid-cols-12">
       <div className="2xl:col-span-4 relative col-span-6 clamp-[px,24px,80px] clamp-[py,48px,80px] bg-black text-white clamp-[rounded-br,20px,40px]">
@@ -15,7 +25,7 @@ const MainEventSection = () => {
             <hr />
             <div className="clamp-[text,h2-m,h2-d] clamp-[leading,h2-m,h2-d] font-semibold clamp-[mt,8px,20px]">
               The ICPP Conference: A Summit of Ideas
-            </div>
+            </div> 
             <div className="clamp-[mt,8px,20px] clamp-[pb,30px,200px] clamp-[text,body2-m,body2-d] clamp-[leading,body2-m,body2-d]">
               The ICPP Annual Growth Conference brings together senior
               policymakers, leading academics, private sector experts, and civil
@@ -23,7 +33,7 @@ const MainEventSection = () => {
             </div>
           </div>
           <div>
-            <PrimaryButton text="Read More" />
+            <PrimaryButton text="Read More"  onClick={handleReadMore}/>
           </div>
         </div>
         <Image

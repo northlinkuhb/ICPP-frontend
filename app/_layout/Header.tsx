@@ -69,7 +69,13 @@ const LargeMenuList: React.FC<LargeMenuListProps> = ({ label, items }) => {
         aria-expanded={isOpen}
       >
         <span>{label}</span>
-        <DownAngleArrow fill="white" />
+        <div
+          className={`transform transition-transform duration-300 ${
+            isOpen ? "rotate-180" : "rotate-0"
+          }`}
+        >
+          <DownAngleArrow fill="white" />
+        </div>
       </button>
       <div
         className={`absolute right-0 mt-[24px] p-[20px] w-[419px] rounded-[8px] bg-white text-black shadow-lg transition-opacity duration-200 ease-out ${isOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"}`}
@@ -104,6 +110,19 @@ const Header = () => {
 
   const [isOpen, setIsOpen] = useState(false);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
+  const [openMenuItems, setOpenMenuItems] = useState<Record<string, boolean>>({
+    ourWork: false,
+    insights: false,
+    aboutUs: false,
+    events: false,
+  });
+
+  const toggleMenuItemOpen = (menuItem: string) => {
+    setOpenMenuItems((prev) => ({
+      ...prev,
+      [menuItem]: !prev[menuItem],
+    }));
+  };
 
   return (
     <div
@@ -161,13 +180,13 @@ const Header = () => {
                 label: "Events at ICPP",
                 description:
                   "ICPP’s events convene voices and ideas at the intersection of research, policy, and public discourse.",
-                link: "/events",
+                link: "/events/upcoming-event",
               },
               {
                 label: "The ICPP Conference: A Summit of Ideas",
                 description:
                   "Bringing policymakers, academics, and practitioners together to discuss India's growth strategy.",
-                link: "/events/conference",
+                link: "/events/past-events",
               },
             ]}
           />
@@ -206,26 +225,108 @@ const Header = () => {
               </div>
 
               <div>
-                <div className="flex justify-between gap-[10px] py-[10px] clamp-[text,button-m,button-d] clamp-[leading,button-m,button-d] font-semibold">
+                <button
+                  type="button"
+                  onClick={() => toggleMenuItemOpen("ourWork")}
+                  className="w-full flex justify-between gap-[10px] py-[10px] clamp-[text,button-m,button-d] clamp-[leading,button-m,button-d] font-semibold"
+                >
                   <div>Our Work</div>
-                  <DownAngleArrow fill="black" />
-                </div>
-                <div className="flex justify-between gap-[10px] py-[10px] clamp-[text,button-m,button-d] clamp-[leading,button-m,button-d] font-semibold">
+                  <div
+                    className={`transform transition-transform duration-300 ${
+                      openMenuItems.ourWork ? "rotate-180" : "rotate-0"
+                    }`}
+                  >
+                    <DownAngleArrow fill="black" />
+                  </div>
+                </button>
+                {openMenuItems.ourWork && (
+                  <div className="flex flex-col gap-[12px] pl-[16px] py-[10px] border-l-2 border-light-gray">
+                    <Link href="/research" onClick={() => setIsOpen(false)}>
+                      <div className="cursor-pointer clamp-[text,body2-m,body2-d]">Research</div>
+                    </Link>
+                    <Link href="/policy" onClick={() => setIsOpen(false)}>
+                      <div className="cursor-pointer clamp-[text,body2-m,body2-d]">Policy</div>
+                    </Link>
+                  </div>
+                )}
+
+                <button
+                  type="button"
+                  onClick={() => toggleMenuItemOpen("insights")}
+                  className="w-full flex justify-between gap-[10px] py-[10px] clamp-[text,button-m,button-d] clamp-[leading,button-m,button-d] font-semibold"
+                >
                   <div>Insights</div>
-                  <DownAngleArrow fill="black" />
-                </div>
-                <div className="flex justify-between gap-[10px] py-[10px] clamp-[text,button-m,button-d] clamp-[leading,button-m,button-d] font-semibold">
+                  <div
+                    className={`transform transition-transform duration-300 ${
+                      openMenuItems.insights ? "rotate-180" : "rotate-0"
+                    }`}
+                  >
+                    <DownAngleArrow fill="black" />
+                  </div>
+                </button>
+                {openMenuItems.insights && (
+                  <div className="flex flex-col gap-[12px] pl-[16px] py-[10px] border-l-2 border-light-gray">
+                    <Link href="/insights" onClick={() => setIsOpen(false)}>
+                      <div className="cursor-pointer clamp-[text,body2-m,body2-d]">All Insights</div>
+                    </Link>
+                  </div>
+                )}
+
+                <button
+                  type="button"
+                  onClick={() => toggleMenuItemOpen("aboutUs")}
+                  className="w-full flex justify-between gap-[10px] py-[10px] clamp-[text,button-m,button-d] clamp-[leading,button-m,button-d] font-semibold"
+                >
                   <div>About Us</div>
-                  <RightAngleArrow fill="black" />
-                </div>
-                <div className="flex justify-between gap-[10px] py-[10px] clamp-[text,button-m,button-d] clamp-[leading,button-m,button-d] font-semibold">
+                  <div
+                    className={`transform transition-transform duration-300 ${
+                      openMenuItems.aboutUs ? "rotate-180" : "rotate-0"
+                    }`}
+                  >
+                    <RightAngleArrow fill="black" />
+                  </div>
+                </button>
+                {openMenuItems.aboutUs && (
+                  <div className="flex flex-col gap-[12px] pl-[16px] py-[10px] border-l-2 border-light-gray">
+                    <Link href="/about-us/our-story" onClick={() => setIsOpen(false)}>
+                      <div className="cursor-pointer clamp-[text,body2-m,body2-d]">Our Story</div>
+                    </Link>
+                    <Link href="/about-us/life-at-icpp" onClick={() => setIsOpen(false)}>
+                      <div className="cursor-pointer clamp-[text,body2-m,body2-d]">Life at ICPP</div>
+                    </Link>
+                  </div>
+                )}
+
+                <button
+                  type="button"
+                  onClick={() => toggleMenuItemOpen("events")}
+                  className="w-full flex justify-between gap-[10px] py-[10px] clamp-[text,button-m,button-d] clamp-[leading,button-m,button-d] font-semibold"
+                >
                   <div>Events</div>
-                  <DownAngleArrow fill="black" />
-                </div>
-                <div className="flex justify-between gap-[10px] py-[10px] clamp-[text,button-m,button-d] clamp-[leading,button-m,button-d] font-semibold">
-                  <div>Contact Us</div>
-                  <RightAngleArrow fill="black" />
-                </div>
+                  <div
+                    className={`transform transition-transform duration-300 ${
+                      openMenuItems.events ? "rotate-180" : "rotate-0"
+                    }`}
+                  >
+                    <DownAngleArrow fill="black" />
+                  </div>
+                </button>
+                {openMenuItems.events && (
+                  <div className="flex flex-col gap-[12px] pl-[16px] py-[10px] border-l-2 border-light-gray">
+                    <Link href="/events/upcoming-event" onClick={() => setIsOpen(false)}>
+                      <div className="cursor-pointer clamp-[text,body2-m,body2-d]">Upcoming Events</div>
+                    </Link>
+                    <Link href="/events/past-events" onClick={() => setIsOpen(false)}>
+                      <div className="cursor-pointer clamp-[text,body2-m,body2-d]">Past Events</div>
+                    </Link>
+                  </div>
+                )}
+
+                <Link href="/contact-us" onClick={() => setIsOpen(false)}>
+                  <div className="flex justify-between gap-[10px] py-[10px] clamp-[text,button-m,button-d] clamp-[leading,button-m,button-d] font-semibold">
+                    <div>Contact Us</div>
+                  </div>
+                </Link>
               </div>
 
               <div className="flex flex-col gap-[12px]">

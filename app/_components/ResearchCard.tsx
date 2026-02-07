@@ -1,8 +1,8 @@
-import Image, { StaticImageData } from "next/image";
+import Image from "next/image";
 import React from "react";
 
 type Props = {
-  image: StaticImageData;
+  image: string;
   title: string;
   published_by?: string;
   date: string;
@@ -12,9 +12,11 @@ const ResearchCard = ({ image, title, published_by, date }: Props) => {
     <div>
       <Image
         src={image}
-        alt="research-1"
+        alt={title}
         className="w-full clamp-[h,204px,310px] object-cover"
-        priority
+        loading="lazy"
+        width={575}
+        height={310}
       />
       <div className="clamp-[pt,12px,20px]">
         <div className=" font-semibold min-h-[3.6ch] clamp-[text,h4-m,h4-d] line-clamp-2 text-ellipsis clamp-[leading,h4-m,h4-d] text-black">

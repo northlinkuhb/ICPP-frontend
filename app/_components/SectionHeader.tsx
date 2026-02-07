@@ -1,3 +1,6 @@
+import SectionHeaderDescription from "@/components/ui/SectionHeaderDescription";
+import MainHeader from "@/components/ui/SectionMainHeader";
+import SectionSubHeader from "@/components/ui/SectionSubHeader";
 import React from "react";
 
 interface SectionHeaderProps {
@@ -15,19 +18,14 @@ const SectionHeader: React.FC<SectionHeaderProps> = ({
 }) => {
   return (
     <div>
-      <div className=" text-black clamp-[pb,4px,10px] font-geist-mono clamp-[text,caption2-m,caption2-d] clamp-[leading,caption2-m,caption2-d]">
-        {subtitle.toUpperCase()}
-      </div>
-      <hr className=" text-black w-[100%]" />
-      <div className="flex justify-between items-end">
+      <SectionSubHeader subtitle={subtitle}/>
+      <hr className=" text-black w-[100%] " />
+      <div className="flex justify-between items-end clamp-[pt,16px,40px]">
         <div>
-          <h2 className="clamp-[pt,16px,40px] text-deep-blue clamp-[text,h2-m,h2-d] clamp-[leading,h2-m,h2-d] font-semibold">
-            {title}
-          </h2>
+          <MainHeader label={title}/>
+
           {description && (
-            <p className="clamp-[pt,10px,16px] clamp-[text,body2-m,body2-d] clamp-[leading,body2-m,body2-d] text-black">
-              {description}
-            </p>
+            <SectionHeaderDescription description={description} />
           )}
         </div>
         {viewAllLink && (

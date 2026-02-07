@@ -20,6 +20,7 @@ const MediaSection: React.FC<MediaSectionProps> = ({ mediaData }) => {
       <SectionHeader
         title="Press. Perspective. Presence."
         subtitle="MEDIA HIGHLIGHTS"
+        viewAllLink="#"
       />
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 clamp-[gap,16px,20px] clamp-[pt,24px,40px]">
         {items.map((item, idx) => (
