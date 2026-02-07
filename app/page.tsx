@@ -44,8 +44,6 @@ const page = async () => {
     },
   ];
 
-  
-
   const homepageApiData = await HomeApi.getHomePageData();
 
   return (

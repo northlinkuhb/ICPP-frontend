@@ -5,7 +5,6 @@ import LeftArrow from "@/components/svg/LeftArrow";
 import AuthorCard from "@/components/ui/AuthorCard";
 import { TAdvisoryCard } from "@/network/types/home.type";
 import SectionSubHeader from "@/components/ui/SectionSubHeader";
-import SectionHeader from "./SectionHeader";
 import SectionMainHeader from "@/components/ui/SectionMainHeader";
 import SectionHeaderDescription from "@/components/ui/SectionHeaderDescription";
 

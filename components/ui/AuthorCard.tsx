@@ -1,6 +1,6 @@
 "use client";
 import React, { useState } from "react";
-import Image, { StaticImageData } from "next/image";
+import Image from "next/image";
 import LinkedIn from "../svg/LinkedIn";
 import LinkArrow from "../svg/LinkArrow";
 import { TAdvisoryCard } from "@/network/types/home.type";

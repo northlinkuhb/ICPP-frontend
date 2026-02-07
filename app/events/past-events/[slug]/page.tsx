@@ -11,11 +11,22 @@ interface EventDetailPageProps {
   }>;
 }
 
+interface EventData {
+  title: string;
+  date: string;
+  time: string;
+  location: string;
+  description: string;
+  speakers: string[];
+  moderator: string;
+  about: string;
+}
+
 const EventDetailPage: React.FC<EventDetailPageProps> = async ({ params }) => {
   const { slug } = await params;
 
   // Event data mapping
-  const eventData: Record<string, any> = {
+  const eventData: Record<string, EventData> = {
     "equilibrium-3-0-annual-economics-festival": {
       title: "Equilibrium 3.0: Annual Economics Festival, Ashoka University",
       date: "12 December, 2025",
@@ -78,7 +89,7 @@ const EventDetailPage: React.FC<EventDetailPageProps> = async ({ params }) => {
     }
   };
 
-  const event = eventData[slug] || {
+  const event: EventData = eventData[slug] || {
     title: "Event Not Found",
     date: "",
     time: "",
@@ -118,7 +129,7 @@ const EventDetailPage: React.FC<EventDetailPageProps> = async ({ params }) => {
                     
                     <div className='clamp-[text,body1-m,body1-d] '>
                             <div className='inline-block align-top'>
-                                {event.speakers.map((speaker, index) => (
+                                {event.speakers.map((speaker: string, index: number) => (
                                     <div key={speaker} className='clamp-[pb,10px,20px]'>
                                         {index === 0 ? (
                                             <>
