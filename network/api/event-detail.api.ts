@@ -1,37 +1,10 @@
-import { TEventPageResp } from "../types/event.type";
+import { TKeySession } from "../types/conference.type";
+import { TPastEvent } from "../types/event.type";
 
-export const EventApi = {
-    getEventpageData: async (): Promise<TEventPageResp> => {
-        // Simulate an API call with a delay
-        await new Promise(resolve => setTimeout(resolve, 1000));
-        return {
-            eventsGallery:[
-                {
-                    id: "1",
-                    imageUrl: "/gallery/gallery-potrait.png",
-                },
-                {
-                    id: "2",
-                    imageUrl: "/gallery/gallery-landscape.png",
-                },
-                {
-                    id: "3",
-                    imageUrl: "/gallery/gallery3.png",
-                },
-                {
-                    id: "4",
-                    imageUrl: "/gallery/gallery4.png",
-                },
-                {
-                    id: "5",
-                    imageUrl: "/gallery/gallery5.png",
-                },
-                {
-                    id: "6",
-                    imageUrl: "/gallery/gallery6.png",
-                },
-            ],
-            pastEvents: [
+export const EventDetailApi = {
+    getEventDetailData: async (slug: string) : Promise<TPastEvent | undefined> => {
+    await new Promise(resolve => setTimeout(resolve, 1000));
+        const allEvent = [
                 {
                     id: "1",
                     slug: "equilibrium-3-0-annual-economics-festival",
@@ -108,8 +81,8 @@ export const EventApi = {
                     eventDescription: "Event Overview: Isaac Centre for Public Policy (ICPP) hosted a workshop led by Professor Jeffrey Liebman, Professor of Public Policy at the Harvard Kennedy School and Distinguished Fellow at ICPP. Between two sessions, around 60-65 participants engaged in a detailed discussion of a Harvard case study examining the effects of cash benefits on healthcare utilization and health outcomes, offering valuable insights for those interested in evidence-based policy analysis and implementation. About Professor Jeffrey Liebman: Dr. Jeffrey Liebman is the Robert W. Scrivner Professor of Public Policy at the Harvard Kennedy School, where he teaches courses in social policy, public sector economics, and American economic policy. At Harvard Kennedy School, he is Director of the Government Performance Lab, which has been providing pro bono technical assistance to state and local governments since 2012 to improve the results they achieve for their citizens.During the first two years of the Obama Administration, Professor Liebman served at the Office of Management and Budget (OMB), first as Executive Associate Director and Chief Economist, and then as Acting Deputy Director. He has also served in the Clinton Administration as Special Assistant to the President for Economic Policy. In these roles, he played a key part in shaping economic policy and overseeing budgetary matters during a critical period for the U.S. economy.",
                     speakers: ["Professor Jeffrey Liebman"],
                     imageUrl: "/gallery/event/event-7.jpg",
-                },   
-            ]
-        };
+                },
+            ];
+        return allEvent.find(item => item.slug === slug);
     }
-};
+}

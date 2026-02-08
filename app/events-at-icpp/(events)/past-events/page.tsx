@@ -35,13 +35,7 @@ const page = async () => {
       {eventPageData.pastEvents.map((event) => (
         <EventListTile
           key={event.id}
-          slug={event.slug}
-          date={event.date}
-          time={event.time}
-          eventName={event.eventName}
-          eventDescription={event.eventDescription}
-          speakers={event.speakers}
-          category="past-events"
+          eventData={event}
         />
       ))}
     </div>

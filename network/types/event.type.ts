@@ -7,11 +7,13 @@ export type TGallery={
 export type TPastEvent = {
     id: string;
     slug: string;
-    date: string;
-    time: string;
+    onDate: string;
+    fromTime: string;
+    toTime: string;
     eventName: string;
     eventDescription: string;
     speakers: string[];
+    imageUrl: string;
 };
 
 export type TEventPageResp = {

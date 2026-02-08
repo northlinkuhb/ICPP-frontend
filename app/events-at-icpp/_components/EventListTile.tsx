@@ -1,33 +1,24 @@
 import React from "react";
 import Link from "next/link";
+import { TPastEvent } from "@/network/types/event.type";
 
 interface EventListTileProps {
-  slug: string;
-  date: string;
-  time: string;
-  eventName: string;
-  eventDescription: string;
-  speakers: string[];
-  category?: "past-events" | "upcoming-event";
+  eventData: TPastEvent;
 }
 
 const EventListTile: React.FC<EventListTileProps> = ({
-  slug,
-  date,
-  time,
-  eventName,
-  eventDescription,
-  speakers,
-  category = "past-events",
+  eventData,
 }) => {
+  const { slug, onDate, fromTime, toTime, eventName, eventDescription, speakers } = eventData;
+  
   return (
     <div className="grid grid-cols-[1fr_3fr_1fr] clamp-[py,20px,40px] clamp-[px,24px,80px] border-b border-light-grays">
       <div className="font-geist-sans text-black">
         <div className="font-semibold clamp-[text,h4-m,h4-d] clamp-[leading,h4-m,h4-d]">
-          {date}
+          {onDate}
         </div>
         <div className="mt-0 lg:mt-[10px] clamp-[text,body2-m,body2-d] clamp-[leading,body2-m,body2-d]">
-          {time}
+          {`${fromTime} - ${toTime}`}
         </div>
       </div>
 
@@ -37,7 +28,7 @@ const EventListTile: React.FC<EventListTileProps> = ({
             {eventName}
           </div>
         </Link>
-        <div className="mt-0 lg:mt-[10px] clamp-[text,body2-m,body2-d] clamp-[leading,body2-m,body2-d]">
+        <div className="mt-0 lg:mt-[10px] clamp-[text,body3-m,body3-d] clamp-[leading,body3-m,body3-d] text-gray line-clamp-2">
           {eventDescription}
         </div>
       </div>
