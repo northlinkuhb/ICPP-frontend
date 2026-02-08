@@ -59,28 +59,29 @@ const AuthorCard = ({ leadersData = [], onLeaderClick }: AuthorCardProps) => {
         <>
           {/* Backdrop */}
           <div
-            className='fixed inset-0 z-[9998] bg-black/30'
+            className='fixed inset-0 z-[9998] bg-black/30 animate-fadeIn'
             onClick={closeSlide}
           />
           {/* Slide Panel */}
           <div
-            className='fixed top-0 right-0 h-screen w-full lg:w-1/2 bg-white z-[9999] clamp-[rounded-bl,20px,40px] clamp-[rounded-tl,20px,40px] shadow-lg transform transition-transform duration-300 ease-in-out'
+            className='fixed top-0 right-0 h-screen w-full lg:w-1/2 bg-white z-[9999] clamp-[rounded-bl,20px,40px] clamp-[rounded-tl,20px,40px] shadow-lg transform transition-all duration-500 ease-out'
             style={{
               transform: isSlideOpen ? 'translateX(0)' : 'translateX(100%)',
+              opacity: isSlideOpen ? 1 : 0,
             }}
           >
             {/* Close Button */}
             <button
               onClick={closeSlide}
-              className='absolute top-6 right-6 text-black hover:text-gray-900 text-2xl'
+              className='absolute top-6 right-6 text-black hover:text-gray-900 text-2xl transition-colors duration-200 animate-fadeIn'
               aria-label="Close slide"
             >
               ✕
             </button>
 
             {/* Content */}
-            <div className='h-full flex flex-col '>
-              <div className='flex items-end clamp-[gap,10px,20px]'>
+            <div className='h-full flex flex-col animate-fadeInDelay'>
+              <div className='flex items-end clamp-[gap,10px,20px] animate-slideInContent' style={{ animationDelay: '100ms' }}>
                 <Image
                   src={selectedLeader?.imageUrl || ''}
                   alt={selectedLeader?.name || 'leader'}
@@ -97,7 +98,7 @@ const AuthorCard = ({ leadersData = [], onLeaderClick }: AuthorCardProps) => {
                   </p>
                 </div>
               </div>
-              <div className='clamp-[pt,10px,20px]'>
+              <div className='clamp-[pt,10px,20px] animate-slideInContent' style={{ animationDelay: '200ms' }}>
                 <div className='text-black clamp-[px,24px,40px] clamp-[py,16px,20px] clamp-[pt,16px,24px] clamp-[text,body3-m,body3-d] clamp-[leading,body3-m,body3-d]' dangerouslySetInnerHTML={{ __html: selectedLeader?.desc || '' }} />
                 <hr className="text-light-gray clamp-[mx,24px,40px]"/>
                 <div className=" flex clamp-[px,24px,40px] clamp-[pt,10px,20px] clamp-[gap,10px,20px] text-black">

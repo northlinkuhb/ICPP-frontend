@@ -19,7 +19,7 @@ const ResearchCard = ({ image, title, published_by, date }: Props) => {
         height={310}
       />
       <div className="clamp-[pt,12px,20px]">
-        <div className=" font-semibold min-h-[3.6ch] clamp-[text,h4-m,h4-d] line-clamp-2 text-ellipsis clamp-[leading,h4-m,h4-d] text-black">
+        <div className=" font-semibold clamp-[text,h4-m,h4-d] line-clamp-2 text-ellipsis clamp-[leading,h4-m,h4-d] text-black">
           {title}
         </div>
         <div className="clamp-[pt,4px,10px] clamp-[text,body3-m,body3-d] clamp-[leading,body3-m,body3-d] text-black">

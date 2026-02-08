@@ -9,6 +9,7 @@ import Instagram from "@/components/svg/Instagram";
 import Link from "next/link";
 import RightAngleArrow from "@/components/svg/RightAngleArrow";
 import DownAngleArrow from "@/components/svg/DownAngleArrow";
+import Star from "@/components/svg/Star";
 
 type FooterMenuListProps = {
   label: string;
@@ -68,11 +69,13 @@ const FooterMenuList: React.FC<FooterMenuListProps> = ({
 const Footer = () => {
   return (
     <div className="font-geist">
-      <div className="grid grid-cols-2">
+      {/* <div className="grid grid-cols-2">
         <div className="bg-deep-blue clamp-[h,40px,80px] clamp-[rounded-tr,20px,40px]"></div>
         <div className="bg-deep-blue clamp-[h,40px,80px] clamp-[rounded-tl,20px,40px]"></div>
-      </div>
-      <div className="flex md:flex-row flex-col clamp-[px,24px,80px] mt-[-1px] clamp-[pt,0px,80px] clamp-[pb,24px,80px]  bg-deep-blue clamp-[gap,40px,100px]">
+      </div> */}
+
+      <div className="relative flex md:flex-row flex-col clamp-[px,24px,80px] mt-[-1px] clamp-[pt,40px,120px] clamp-[pb,24px,80px]  bg-deep-blue clamp-[gap,40px,100px]">
+        <Star className="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 clamp-[size,40px,80px]" />
         <div className="md:w-[35%] flex flex-col justify-between">
           <div className="">
             <Image

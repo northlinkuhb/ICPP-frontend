@@ -6,11 +6,14 @@ import pursuit1 from "@public/png/pursuit/our-pursuite-1.png";
 import pursuit2 from "@public/png/pursuit/our-pursuite-2.png";
 import pursuit3 from "@public/png/pursuit/our-pursuite-3.png";
 import PursuitCard from "../_components/PursuitCard";
-import GallerySection from "@/app/_components/GallerySection";
 import about from "../../../public/about-us.png";
 import AboutTab from "../_components/AboutTab";
+import GalleryCarousel from "@/components/ui/GalleryCarousel";
+import { AboutApi } from "@/network/api/about.api";
 
-const page = () => {
+const page = async () => {
+    const aboutApiData = await AboutApi.getAboutPageData();
+  
   const pursuits = [
     {
       image: pursuit1,
@@ -78,7 +81,21 @@ const page = () => {
         </div>
       </div>
 
-      <GallerySection />
+      <div className="bg-black clamp-[py,40px,120px]">
+        <div className="text-white clamp-[pb,4px,10px] clamp-[px,24px,80px] font-geist-mono clamp-[text,caption2-m,caption2-d] clamp-[leading,caption2-m,caption2-d]">
+          {"Image Gallery".toUpperCase()}
+        </div>
+        <hr className="text-white clamp-[mx,24px,80px]" />
+        <div className="flex justify-between items-end text-white clamp-[pt,16px,40px] clamp-[pb,24px,40px] clamp-[px,24px,80px]">
+          <div className="font-semibold clamp-[text,h2-m,h2-d] clamp-[leading,h2-m,h2-d]">
+            Events at ICPP
+          </div>
+          <div className="underline clamp-[text,caption2-m,caption2-d] clamp-[leading,caption2-m,caption2-d]">
+            View All
+          </div>
+        </div>
+        <GalleryCarousel galleryImages={aboutApiData.commonGallery}/>
+      </div>
     </div>
   );
 };

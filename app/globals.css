@@ -197,3 +197,45 @@ body {
     font-size: var(--button-m);
   }
 }
+/* Smooth animations for slide-in panel */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInDelay {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideInContent {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 400ms ease-out forwards;
+}
+
+.animate-fadeInDelay {
+  animation: fadeInDelay 500ms ease-out 150ms forwards;
+  opacity: 0;
+}
+
+.animate-slideInContent {
+  animation: slideInContent 400ms ease-out forwards;
+}

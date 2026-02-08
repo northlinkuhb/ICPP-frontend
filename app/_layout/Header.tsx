@@ -180,13 +180,13 @@ const Header = () => {
                 label: "Events at ICPP",
                 description:
                   "ICPP’s events convene voices and ideas at the intersection of research, policy, and public discourse.",
-                link: "/events/upcoming-event",
+                link: "/events-at-icpp/upcoming-event",
               },
               {
                 label: "The ICPP Conference: A Summit of Ideas",
                 description:
                   "Bringing policymakers, academics, and practitioners together to discuss India's growth strategy.",
-                link: "/events/past-events",
+                link: "/the-icpp-conference",
               },
             ]}
           />
@@ -313,10 +313,10 @@ const Header = () => {
                 </button>
                 {openMenuItems.events && (
                   <div className="flex flex-col gap-[12px] pl-[16px] py-[10px] border-l-2 border-light-gray">
-                    <Link href="/events/upcoming-event" onClick={() => setIsOpen(false)}>
+                    <Link href="/events-at-icpp/upcoming-event" onClick={() => setIsOpen(false)}>
                       <div className="cursor-pointer clamp-[text,body2-m,body2-d]">Upcoming Events</div>
                     </Link>
-                    <Link href="/events/past-events" onClick={() => setIsOpen(false)}>
+                    <Link href="/events-at-icpp/past-events" onClick={() => setIsOpen(false)}>
                       <div className="cursor-pointer clamp-[text,body2-m,body2-d]">Past Events</div>
                     </Link>
                   </div>

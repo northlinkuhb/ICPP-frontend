@@ -52,10 +52,9 @@ const OurWorkSection: React.FC<OurWorkSectionProps> = ({
           </div>
         </div>
         <CarouselContent className="clamp-[pb,24px,40px]">
-          {researchData.map((item, index) => (
-            <CarouselItem key={index} className="basis-1/3 clamp-[pr,16px,20px]">
+          {researchData.map((item) => (
+            <CarouselItem key={item.id} className="basis-full lg:basis-1/3 clamp-[pr,16px,20px]">
               <ResearchCard
-                key={index}
                 image={item.imageUrl}
                 title={item.title}
                 published_by={item.author.name}
@@ -92,10 +91,9 @@ const OurWorkSection: React.FC<OurWorkSectionProps> = ({
           </div>
         </div>
         <CarouselContent className="clamp-[pb,24px,40px]">
-          {policyData.map((item, index) => (
-            <CarouselItem key={index} className="basis-1/3 clamp-[pr,16px,20px]">
+          {policyData.map((item) => (
+            <CarouselItem key={item.id} className="basis-full lg:basis-1/3 clamp-[pr,16px,20px]">
               <ResearchCard
-                key={index}
                 image={item.imageUrl}
                 title={item.title}
                 published_by={item.author.name}

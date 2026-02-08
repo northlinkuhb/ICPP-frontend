@@ -3,11 +3,11 @@
 import Image from "next/image";
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "motion/react";
-import type { HeroSlide } from "../_data/hero";
+import type { TBanner } from "@/network/types/home.type";
 import PrimaryButton from "../../components/PrimaryButton";
 
 interface HeroSectionProps {
-  slides: HeroSlide[];
+  slides: TBanner[];
 }
 
 const HeroSection: React.FC<HeroSectionProps> = ({ slides }) => {
@@ -53,10 +53,12 @@ const HeroSection: React.FC<HeroSectionProps> = ({ slides }) => {
           transition={{ duration: 0.8, ease: "easeInOut" }}
         >
           <Image
-            src={slide.image}
-            alt={slide.alt}
+            src={slide.imageUrl}
+            alt={slide.title}
             className="w-full h-full object-cover "
             priority
+            width={1920}
+            height={1080}
           />
         </motion.div>
       </AnimatePresence>
@@ -76,7 +78,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({ slides }) => {
           <p className="clamp-[mt,12px,32px] clamp-[text,body1-m,body1-d] clamp-[leading,body1-m,body1-d] max-w-[80ch] text-white">
             {slide.description}
           </p>
-          <PrimaryButton text="Our Research" />
+          <PrimaryButton text={slide.buttonText} link={slide.buttonLink} />
         </motion.div>
       </AnimatePresence>
 

@@ -2,7 +2,7 @@
 import Tab from "@/components/Tab";
 import React, { useState } from "react";
 import second from "@public/media.png";
-import seconfirst from "@public/banner/banner2.png";
+import seconfirst from "@public/banners/banner2.png";
 import Image from "next/image";
 import InsightSection from "./InsightSection";
 const SecondSection = () => {
@@ -115,7 +115,6 @@ export const FeaturedSection = () => {
         <h2 className=" text-deep-blue clamp-[text,h2-m,h2-d] clamp-[leading,h2-m,h2-d] font-semibold">
           Featured
         </h2>
-
         <div className="clamp-[mt,24px,40px] grid grid-cols-1 md:grid-cols-2  lg:grid-cols-3 clamp-[gap,16px,20px]">
           {insightData.map((insight, index) => (
             <div key={index}>

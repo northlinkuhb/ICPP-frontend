@@ -5,6 +5,32 @@ export const HomeApi = {
         // Implementation for fetching home page data
         await new Promise((resolve) => setTimeout(resolve, 1000)); // Simulate network delay
         return {
+            banners: [
+                {
+                    id: "1",
+                    imageUrl: "/banners/banner1.png",
+                    title: "Isaac Centre for Public Policy connects multiple dualities that exist across the policy ecosystem.",
+                    description: "At the nexus of government, academia, researchers, and practitioners, ICPP advances rigorous, context-specific economic policy research grounded in India’s realities.",
+                    buttonText: "Our Research",
+                    buttonLink: "/research"
+                },
+                {
+                    id: "2",
+                    imageUrl: "/banners/banner2.png",
+                    title: "At the intersection of rigor and relevance, policy finds direction.",
+                    description: "We turn inquiry into solutions by linking evidence, expertise, and decision-making.",
+                    buttonText: "Our Work",
+                    buttonLink: "/research"
+                },
+                {
+                    id: "3",
+                    imageUrl: "/banners/banner3.png",
+                    title: "Policy advances when people and practice meet.",
+                    description: "Connecting students, practitioners and researchers to shape informed public decisions.",
+                    buttonText: "Our Work",
+                    buttonLink: "/research"
+                },
+            ],
             researches: [
                 {
                     id: "1",
@@ -108,6 +134,32 @@ export const HomeApi = {
                     imageUrl: "/policy/digitalisation.png"
                 },
             ],
+            eventsGallery:[
+                {
+                    id: "1",
+                    imageUrl: "/gallery/gallery-potrait.png",
+                },
+                {
+                    id: "2",
+                    imageUrl: "/gallery/gallery-landscape.png",
+                },
+                {
+                    id: "3",
+                    imageUrl: "/gallery/gallery3.png",
+                },
+                {
+                    id: "4",
+                    imageUrl: "/gallery/gallery4.png",
+                },
+                {
+                    id: "5",
+                    imageUrl: "/gallery/gallery5.png",
+                },
+                {
+                    id: "6",
+                    imageUrl: "/gallery/gallery6.png",
+                },
+            ],
             advisories: [
                 {
                     id: "1",
@@ -187,6 +239,64 @@ export const HomeApi = {
                     readMore: "https://icpp.org.in/people/kanika-mahajan/"
                 },
             ],
+            viewpoints: [
+                {
+                    id: "1",
+                    videoId: "HtBaNDcu0C4",
+                    title: "ICPP Bengaluru Launch Event | Panel Discussion",
+                    category: "Video",
+                    author: {
+                        id: "1",
+                        name: "Ashish Dhawan"
+                    },
+                    createdAt: "21 September, 2024"
+                },
+                {
+                    id: "2",
+                    videoId: "DSfBnpr44PQ",
+                    title: "ICPP Bengaluru Launch Event | In conversation with N.K. Singh",
+                    category: "Video",
+                    author: {
+                        id: "1",
+                        name: "Prachi Mishra"
+                    },
+                    createdAt: "21 September, 2024"
+                },
+                {
+                    id: "3",
+                    videoId: "Ab3qzONFoZQ",
+                    title: "ICPP Bengaluru Event | Keynote Address by Dr. V Anantha Nageswaran",
+                    category: "Video",
+                    author: {
+                        id: "1",
+                        name: "Dr. V Anantha Nageswaran"
+                    },
+                    createdAt: "21 September, 2024"
+                },
+            ],
+            medias: [
+                {
+                    id: "1",
+                    imageUrl: "/medias/media-budget.png",
+                    title: "Budget: It combines strategic ambition with fiscal discipline to set India up for a sustainable growth trajectory",
+                    description: "The budget’s significance extends beyond immediate fiscal arithmetic. As a statement of financial accounts, it reflects the government’s priorities and reveals its theory of economic development. What’s striking is what this budget doesn’t do: it avoids grand claims about external conditions or global headwinds. Instead, it keeps its head down and focuses on the painstaking process and institutional reforms that are essential to sustaining India’s growth momentum.",
+                    mediaLink: "https://www.livemint.com/opinion/online-views/budget-combines-strategic-ambition-fiscal-discipline-india-sustainable-growth-trajectory-11770040650677.html"
+                },
+                {
+                    id: "2",
+                    imageUrl: "/medias/media-self-interest.png",
+                    title: "Self-Interest, Sentiment, and the Fine Print",
+                    description: "STT hike stole headlines, but Budget 2026’s real story lies in quiet reforms, capital focus, and a deeper push for trust-based execution and implementation tracking.",
+                    mediaLink: "https://www.basispointinsight.com/Story/Author/self-interest--sentiment--and-the-fine-print-_2b5f57b68dfc.html"
+                },
+                {
+                    id: "3",
+                    imageUrl: "/medias/media-consumer.png",
+                    title: "Consumer Price Index : Base Year Revision",
+                    description: "दूध महंगा हो, सब्जियों के बढ़ते दाम हों, बच्चों की स्कूल फ़ीस या घर का किराया... हर महीने हमारी जेब से निकलने वाला पैसा दरअसल एक ही आँकड़े से जुड़ा होता है—कंज़्यूमर प्राइस इंडेक्स (CPI)। यही CPI है, जिससे देश की महंगाई मापी जाती है, जिसके आधार पर RBI ब्याज दरें तय करता है और सरकार अपनी नीतियां बनाती है। लेकिन बड़ा सवाल यह है कि क्या CPI आज के भारत की असली तस्वीर दिखाने में सक्षम है? इसके लिए क्या प्रयास किए जा रहे हैं? आज हम बात कर रहे हैं CPI के बेस ईयर रिविज़न की—एक ऐसी कवायद, जो केवल आंकड़ों का पुनर्मूल्यांकन नहीं, बल्कि नए भारत की बदलती उपभोग आदतों को समझने का प्रयास भी है।",
+                    mediaLink: "https://www.youtube.com/watch?v=bGpRjBeHn7s"
+                },
+            ]
         };
     }
 };

@@ -5,6 +5,7 @@ import whoweare from "../../public/png/whoweare.png";
 import whoweareImage from "../../public/png/whoweare_image.png";
 import whatwedo from "../../public/png/whatwedo.png";
 import whatwedoImage from "../../public/png/whatwedo_image.png";
+import Star from "@/components/svg/Star";
 
 const WhoAndWhatSection = () => (
   <div className="grid grid-cols-1 lg:grid-cols-2">
@@ -36,12 +37,16 @@ const WhoAndWhatSection = () => (
           <PrimaryButton text="About Us" />
         </div>
       </div>
-      <Image
-        src={whoweareImage}
-        alt="Who We Are"
-        className="clamp-[rounded-bl,20px,40px] clamp-[rounded-tr,20px,40px] w-full clamp-[h,186px,486px] object-cover"
-        priority
-      />
+      <div className="relative">
+        <Image
+          src={whoweareImage}
+          alt="Who We Are"
+          className="clamp-[rounded-bl,20px,40px] clamp-[rounded-tr,20px,40px] w-full clamp-[h,186px,486px] object-cover"
+          priority
+        />
+        <Star className="absolute top-0 right-0 transform translate-x-1/2 -translate-y-1/2 clamp-[size,40px,80px]" />
+      </div>
+      
     </div>
     <div className="flex flex-col-reverse lg:flex-col">
       <Image

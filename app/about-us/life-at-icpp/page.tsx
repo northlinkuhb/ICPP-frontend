@@ -1,16 +1,8 @@
-"use client";
 import React from "react";
-import { StaticImageData } from "next/image";
 import Hero from "../_components/Hero";
 import lifeAtIcpp from "@public/life-at-icpp.png";
 import second from "@public/png/Vector.png";
 import Image from "next/image";
-import gallery1 from "@public/gallery/gallery-potrait.png";
-import gallery2 from "@public/gallery/gallery-landscape.png";
-import gallery3 from "@public/gallery/gallery3.png";
-import gallery4 from "@public/gallery/gallery4.png";
-import gallery5 from "@public/gallery/gallery5.png";
-import gallery6 from "@public/gallery/gallery6.png";
 import {
   Carousel,
   CarouselContent,
@@ -19,60 +11,14 @@ import {
   CarouselPrevious,
 } from "@/components/ui/Carousel";
 import whoweare from "@public/png/testimonial.png";
-import GallerySection from "@/components/GalleryCarouselSection";
+import { AboutApi } from "@/network/api/about.api";
+import GalleryMaisonGrid from "@/components/GalleryMaisonGrid";
+import SectionHeader from "@/app/_components/SectionHeader";
 
-const testimonialLists = [
-  {
-    description:
-      "Lorem ipsum dolor sit amet consectetur. Enim nisi lorem nunc tortor. Feugiat ac non facilisis quisque eleifend metus dui amet accumsan. Et orci ultrices condimentum duis urna magna. Id quis adipiscing nisl nisl risus enim pellentesque. Habitasse arcu facilisis a feugiat et ultrices. Nibh pellentesque sed tortor arcu penatibus dolor habitant. Quam non ultricies auctor ultricies arcu mi odio. Praesent ",
-    name: "Priya Sharma",
-    designation: "Senior Policy Researcher",
-  },
-  {
-    description:
-      "The interdisciplinary team here brings diverse perspectives to complex policy challenges. It's truly a place where ideas matter.",
-    name: "Amit Kumar",
-    designation: "Data Scientist",
-  },
-  {
-    description:
-      "ICPP's mission to bridge research and policy resonates deeply with my values. Every project contributes to meaningful change.",
-    name: "Neha Patel",
-    designation: "Research Associate",
-  },
-  {
-    description:
-      "The learning opportunities and mentorship at ICPP are unparalleled. I've grown both professionally and personally.",
-    name: "Vikram Singh",
-    designation: "Policy Analyst",
-  },
-  {
-    description:
-      "Being part of a team dedicated to India's economic development gives our work real purpose and direction.",
-    name: "Anjali Desai",
-    designation: "Communications Manager",
-  },
-];
 
-const page = () => {
-  const galleryImages: Array<{
-    id: number;
-    src: StaticImageData;
-    alt: string;
-  }> = [
-    { id: 1, src: gallery1, alt: "Gallery 1" },
-    { id: 2, src: gallery2, alt: "Gallery 2" },
-    { id: 3, src: gallery3, alt: "Gallery 3" },
-    { id: 4, src: gallery4, alt: "Gallery 4" },
-    { id: 5, src: gallery5, alt: "Gallery 5" },
-    { id: 6, src: gallery6, alt: "Gallery 6" },
-    { id: 7, src: gallery1, alt: "Gallery 1" },
-    { id: 8, src: gallery2, alt: "Gallery 2" },
-    { id: 9, src: gallery3, alt: "Gallery 3" },
-    { id: 10, src: gallery4, alt: "Gallery 4" },
-    { id: 11, src: gallery5, alt: "Gallery 5" },
-    { id: 12, src: gallery6, alt: "Gallery 6" },
-  ];
+const page = async () => {
+    const aboutApiData = await AboutApi.getAboutPageData();
+  
   return (
     <div>
       <Hero
@@ -82,7 +28,12 @@ const page = () => {
         title="Life at ICPP"
         description="Inside the people, places, and moments shaping our work in public policy."
       />
-      <GallerySection images={galleryImages} />
+      <div className="clamp-[px,24px,80px] clamp-[pt,40px,120px]">
+        <SectionHeader title="In Pictures" subtitle="IMAGE GALLERY"/>
+      </div>
+      <div className="clamp-[pb,20px,120px] clamp-[pt,20px,40px]">
+        <GalleryMaisonGrid images={aboutApiData.commonGallery}/>
+      </div>
       <div>
         <Image src={second} alt="Vector" className="w-full " />
       </div>
@@ -101,13 +52,13 @@ const page = () => {
           </div>
           <div className="clamp-[pt,20px,40px]">
             <CarouselContent className="clamp-[pr,16px,20px]">
-              {testimonialLists.map((testimonial, index) => (
+              {aboutApiData.testimonials.map((testimonial, index) => (
                 <CarouselItem
                   key={index}
                   className="basis-auto clamp-[px,16px,20px] border-r border-r-light-blue"
                 >
                   <div className="max-w-[30ch] clamp-[text,body2-m,body2-d] clamp-[leading,body2-m,body2-d] text-black">
-                    {testimonial.description}
+                    {testimonial.feedback}
                   </div>
                   <div className="flex items-center clamp-[pt,24px,32px] gap-[16px]">
                     <div>

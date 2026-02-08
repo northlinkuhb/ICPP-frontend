@@ -1,36 +1,15 @@
 "use client";
-import React, { useRef } from "react";
-import Image from "next/image";
-import gallery1 from "../../public/gallery/gallery-potrait.png";
-import gallery2 from "../../public/gallery/gallery-landscape.png";
-import gallery3 from "../../public/gallery/gallery3.png";
-import gallery4 from "../../public/gallery/gallery4.png";
-import gallery5 from "../../public/gallery/gallery5.png";
-import gallery6 from "../../public/gallery/gallery6.png";
-import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
-} from "@/components/ui/Carousel";
-import Autoplay from "embla-carousel-autoplay";
+import React from "react";
+import GalleryCarousel from "../../components/ui/GalleryCarousel";
+import { TGallery } from "@/network/types/home.type";
 
-const GallerySection: React.FC = () => {
-  const galleryImages = [
-    gallery1,
-    gallery2,
-    gallery3,
-    gallery3,
-    gallery4,
-    gallery5,
-    gallery6,
-  ];
+type GalleryHomeSectionProps = {
+  dataGallery?: TGallery[];
+};
 
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const plugin = React.useRef<any>(
-    Autoplay({ delay: 3000, stopOnInteraction: true }),
-  );
+const GalleryHomeSection: React.FC<GalleryHomeSectionProps> = ({
+  dataGallery = [],
+}) => {
 
   return (
     <>
@@ -48,38 +27,10 @@ const GallerySection: React.FC = () => {
           View All
         </div>
       </div>
-      <Carousel
-        plugins={[plugin.current]}
-        // onMouseEnter={plugin.current.stop}
-        // onMouseLeave={plugin.current.reset}
-        opts={{
-          align: "start",
-          loop: true,
-        }}
-      >
-        <CarouselContent className="clamp-[ml,24px,80px] flex clamp-[h,297px,550px]">
-          {galleryImages.map((image, index) => (
-            <CarouselItem
-              key={index}
-              className="basis-auto clamp-[mr,16px,20px]"
-            >
-              <Image
-                src={image}
-                alt={`gallery-${index + 1}`}
-                className="h-full w-auto"
-                priority
-              />
-            </CarouselItem>
-          ))}
-        </CarouselContent>
-        <div className="pt-[20px] flex gap-[18px] clamp-[px,24px,80px]">
-          <CarouselPrevious aria-label="Scroll left"></CarouselPrevious>
-          <CarouselNext aria-label="Scroll right"></CarouselNext>
-        </div>
-      </Carousel>
+      <GalleryCarousel galleryImages={dataGallery} />
     </div>
     </>
   );
 };
 
-export default GallerySection;
+export default GalleryHomeSection;

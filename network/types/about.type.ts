@@ -10,8 +10,22 @@ export type TAdvisoryCard = {
     readMore: string;
 };
 
+export type TGallery={
+    id: string;
+    imageUrl: string;
+};
+
+export type TTestimonial = {
+    id: string;
+    name: string;
+    designation: string;
+    feedback: string;
+};
+
 export type TAboutPageResp = {
     advisories: TAdvisoryCard[];
     fellows: TAdvisoryCard[];
     ourTeams: TAdvisoryCard[];
+    commonGallery: TGallery[];
+    testimonials: TTestimonial[];
 };

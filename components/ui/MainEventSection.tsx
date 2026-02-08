@@ -11,7 +11,7 @@ const MainEventSection = () => {
   const router = useRouter();
 
   const handleReadMore = () => {
-    router.push("/events/upcoming-event/icpp-conference-summit-of-ideas");
+    router.push("/the-icpp-conference");
   };
 
   return (
