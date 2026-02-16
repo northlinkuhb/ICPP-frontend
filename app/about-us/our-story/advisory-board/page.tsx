@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Suspense } from "react";
 import Hero from "../../_components/Hero";
 import about from "../../../../public/about-us.png";
 import AboutTab from "../../_components/AboutTab";
@@ -18,7 +18,9 @@ const page = async () => {
         description="ICPP operates at the nexus of research, education, and policymaking."
       />
       <div className="clamp-[pt,40px,120px] clamp-[px,24px,80px]">
-        <AboutTab />
+        <Suspense fallback={null}>
+          <AboutTab />
+        </Suspense>
         <div className="text-deep-blue clamp-[text,h2-m,h2-d] clamp-[leading,h2-m,h2-d] font-semibold clamp-[mt,40px,80px] ">
           Advisory Board
         </div>

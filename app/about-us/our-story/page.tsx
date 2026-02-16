@@ -10,6 +10,7 @@ import about from "../../../public/about-us.png";
 import AboutTab from "../_components/AboutTab";
 import GalleryCarousel from "@/components/ui/GalleryCarousel";
 import { AboutApi } from "@/network/api/about.api";
+import { Suspense } from "react";
 
 const page = async () => {
     const aboutApiData = await AboutApi.getAboutPageData();
@@ -51,7 +52,9 @@ const page = async () => {
         description="The Isaac Centre for Public Policy strengthens India’s policy ecosystem through rigorous research and meaningful engagement, grounded at Ashoka University."
       />
       <div className="clamp-[pt,40px,120px] clamp-[px,24px,80px]">
-        <AboutTab />
+        <Suspense fallback={null}>
+          <AboutTab />
+        </Suspense>
         <VisionMission />
       </div>
       <div>

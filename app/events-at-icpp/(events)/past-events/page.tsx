@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Suspense } from "react";
 import policy from "@public/png/events.png";
 import EventsSection from "../../_components/EventsSection";
 import EventListTile from "../../_components/EventListTile";
@@ -18,7 +18,9 @@ const page = async () => {
         title="Events at ICPP"
         description="ICPP’s events convene voices and ideas at the intersection of research, policy, and public discourse."
       />
-      <EventsSection initialActiveTab="past-events" />
+      <Suspense fallback={null}>
+        <EventsSection initialActiveTab="past-events" />
+      </Suspense>
       <div className="clamp-[px,24px,80px] grid grid-cols-[1fr_3fr_1fr] clamp-[text,caption2-m,caption2-d] text-gray font-geist-mono" >
         <div className="hidden md:block">
             DATE & TIME

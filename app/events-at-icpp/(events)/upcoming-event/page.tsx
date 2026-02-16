@@ -1,3 +1,4 @@
+import { Suspense } from "react";
 import Hero from "./_components/Hero";
 import Image from "next/image";
 import noEvent from "@public/png/no-events.png";
@@ -9,7 +10,9 @@ const page = () => {
   return (
     <div>
       <Hero />
-      <EventsSection initialActiveTab="upcoming-event" />
+      <Suspense fallback={null}>
+        <EventsSection initialActiveTab="upcoming-event" />
+      </Suspense>
       <div className="clamp-[px,24px,80px]">
         <Image src={noEvent} alt="Events" className="w-full h-fit" />
       </div>
