@@ -137,47 +137,47 @@ export const HomeApi = {
             eventsGallery:[
                 {
                     id: "1",
-                    imageUrl: "/gallery/common-events/common_event_1.jpg",
+                    imageUrl: "/gallery/common-events/common_event_1.JPG",
                 },
                 {
                     id: "2",
-                    imageUrl: "/gallery/common-events/common_event_2.jpg",
+                    imageUrl: "/gallery/common-events/common_event_2.JPG",
                 },
                 {
                     id: "3",
-                    imageUrl: "/gallery/common-events/common_event_3.jpg",
+                    imageUrl: "/gallery/common-events/common_event_3.JPG",
                 },
                 {
                     id: "4",
-                    imageUrl: "/gallery/common-events/common_event_4.jpg",
+                    imageUrl: "/gallery/common-events/common_event_4.JPG",
                 },
                 {
                     id: "5",
-                    imageUrl: "/gallery/common-events/common_event_5.jpg",
+                    imageUrl: "/gallery/common-events/common_event_5.JPG",
                 },
                 {
                     id: "6",
-                    imageUrl: "/gallery/common-events/common_event_6.jpg",
+                    imageUrl: "/gallery/common-events/common_event_6.JPG",
                 },
                 {
                     id: "7",
-                    imageUrl: "/gallery/common-events/common_event_7.jpg",
+                    imageUrl: "/gallery/common-events/common_event_7.JPG",
                 },
                 {
                     id: "8",
-                    imageUrl: "/gallery/common-events/common_event_8.jpg",
+                    imageUrl: "/gallery/common-events/common_event_8.JPG",
                 },
                 {
                     id: "9",
-                    imageUrl: "/gallery/common-events/common_event_9.jpg",
+                    imageUrl: "/gallery/common-events/common_event_9.JPG",
                 },
                 {
                     id: "10",
-                    imageUrl: "/gallery/common-events/common_event_10.jpg",
+                    imageUrl: "/gallery/common-events/common_event_10.JPG",
                 },
                 {
                     id: "11",
-                    imageUrl: "/gallery/common-events/common_event_11.jpg",
+                    imageUrl: "/gallery/common-events/common_event_11.JPG",
                 },
             ],
             advisories: [
