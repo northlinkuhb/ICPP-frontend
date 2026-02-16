@@ -1,3 +1,4 @@
+import AnimatedLine from "@/components/animations/AnimatedLine";
 import SectionHeaderDescription from "@/components/ui/SectionHeaderDescription";
 import MainHeader from "@/components/ui/SectionMainHeader";
 import SectionSubHeader from "@/components/ui/SectionSubHeader";
@@ -18,11 +19,12 @@ const SectionHeader: React.FC<SectionHeaderProps> = ({
 }) => {
   return (
     <div>
-      <SectionSubHeader subtitle={subtitle}/>
-      <hr className=" text-black w-[100%] " />
+      <SectionSubHeader subtitle={subtitle} />
+      <AnimatedLine className=" bg-black!  " delay={0.2} />
+
       <div className="flex justify-between items-end clamp-[pt,16px,40px]">
         <div>
-          <MainHeader label={title}/>
+          <MainHeader label={title} />
 
           {description && (
             <SectionHeaderDescription description={description} />
@@ -31,7 +33,7 @@ const SectionHeader: React.FC<SectionHeaderProps> = ({
         {viewAllLink && (
           <a
             href={viewAllLink}
-            className="underline clamp-[text,body3-m,body3-d] clamp-[leading,body3-m,body3-d] text-black"
+            className="underline clamp-[text,body3-m,body3-d] hover:text-electric-blue duration-300 ease-in-out transition-all clamp-[leading,body3-m,body3-d] text-black"
           >
             View All
           </a>

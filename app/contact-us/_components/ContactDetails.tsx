@@ -2,16 +2,14 @@ import Image from "next/image";
 import React from "react";
 import second from "@public/png/Vector.png";
 import Link from "next/link";
+import MainHeader from "@/components/ui/SectionMainHeader";
 const ContactDetails = () => {
   return (
     <div>
       <Image src={second} alt="Vector" className="w-full" />
 
       <div className="clamp-[px,24px,80px] clamp-[py,40px,120px]">
-        <h2 className="text-deep-blue clamp-[text,h2-m,h2-d] clamp-[leading,h2-m,h2-d] font-semibold">
-          Contact Details
-        </h2>
-
+        <MainHeader label="Contact Details" />
         <div className="grid md:grid-cols-2 clamp-[pt,20px,40px] clamp-[gap,20px,40px]">
           <div>
             <h5 className="clamp-[text,16px,24px] gap-[10px] flex items-center clamp-[leading,23px,36px] font-semibold text-black">

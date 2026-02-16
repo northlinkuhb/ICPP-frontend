@@ -1,12 +1,24 @@
 "use client";
 import Tab from "@/components/Tab";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import second from "@public/media.png";
 import seconfirst from "@public/banners/banner2.png";
 import Image from "next/image";
 import InsightSection from "./InsightSection";
+import { useSearchParams } from "next/navigation";
+import CardAnimation from "@/components/animations/CardAnimation";
+import TextStaggerAnimation from "@/components/animations/TextStaggerAnimation";
+
 const SecondSection = () => {
-  const [activeTab, setActiveTab] = useState("featured");
+  const searchParams = useSearchParams();
+  const tabFromParams = searchParams?.get("tab") || "featured";
+  const [activeTab, setActiveTab] = useState(tabFromParams);
+
+  // Only update state on mount (first render)
+  useEffect(() => {
+    setActiveTab(tabFromParams);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   const tabs = [
     { name: "Featured", label: "featured" },
@@ -117,7 +129,7 @@ export const FeaturedSection = () => {
         </h2>
         <div className="clamp-[mt,24px,40px] grid grid-cols-1 md:grid-cols-2  lg:grid-cols-3 clamp-[gap,16px,20px]">
           {insightData.map((insight, index) => (
-            <div key={index}>
+            <CardAnimation delay={0.1} index={index} key={index}>
               {insight.typeId === 1 ? (
                 <div className="relative w-full clamp-[h,204px,310px] overflow-hidden ">
                   <iframe
@@ -155,7 +167,7 @@ export const FeaturedSection = () => {
               <div className="clamp-[text,caption1-m,caption1-d] clamp-[leading,caption1-m,caption1-d] clamp-[mt,4px,10px] text-gray">
                 {insight.date}
               </div>
-            </div>
+            </CardAnimation>
           ))}
         </div>
 
@@ -165,7 +177,10 @@ export const FeaturedSection = () => {
       <div className="  ">
         <div className="clamp-[px,24px,80px] clamp-[pt,20px,80px]  bg-light-blue">
           <h2 className=" text-deep-blue clamp-[text,h2-m,h2-d] clamp-[leading,h2-m,h2-d] font-semibold">
-            In the Spotlight{" "}
+            <TextStaggerAnimation
+              text="In the Spotlight"
+              className=" flex flex-wrap"
+            />{" "}
           </h2>
         </div>
         <div className="flex lg:flex-row flex-col  text-black ">

@@ -13,7 +13,7 @@ import Star from "@/components/svg/Star";
 
 type FooterMenuListProps = {
   label: string;
-  menuListItems?: string[];
+  menuListItems?: { label: string; href: string }[];
 };
 
 const FooterMenuList: React.FC<FooterMenuListProps> = ({
@@ -43,8 +43,25 @@ const FooterMenuList: React.FC<FooterMenuListProps> = ({
         <hr className="text-white" />
         {isOpen && (
           <ul className="pt-[20px] flex flex-col gap-[20px] text-light-gray clamp-[text,body3-m,body3-d] clamp-[leading,body3-m,body3-d]">
-            {menuListItems?.map((menuListItem) => (
-              <li key={menuListItem}>{menuListItem}</li>
+            {menuListItems?.map((menuListItem, i) => (
+              <Link
+                className="text-light-gray group hover:text-white flex items-center gap-1.5 duration-300 ease-in-out transition-all hover:font-medium"
+                href={menuListItem.href}
+                key={i}
+              >
+                {menuListItem.label}{" "}
+                <svg
+                  className="size-3 opacity-0 group-hover:opacity-100 duration-300 ease-in-out transition-all"
+                  viewBox="0 0 16 16"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M12.175 9H0V7H12.175L6.575 1.4L8 0L16 8L8 16L6.575 14.6L12.175 9Z"
+                    fill="currentColor"
+                  />
+                </svg>
+              </Link>
             ))}
           </ul>
         )}
@@ -56,9 +73,26 @@ const FooterMenuList: React.FC<FooterMenuListProps> = ({
           {label}
         </h4>
         <hr className="text-white" />
-        <ul className="pt-[20px] flex flex-col gap-[20px] text-light-gray clamp-[text,body3-m,body3-d] clamp-[leading,body3-m,body3-d]">
-          {menuListItems?.map((menuListItem) => (
-            <li key={menuListItem}>{menuListItem}</li>
+        <ul className="pt-[20px] flex flex-col gap-[20px] clamp-[text,body3-m,body3-d] clamp-[leading,body3-m,body3-d]">
+          {menuListItems?.map((menuListItem, i) => (
+            <Link
+              className="text-light-gray group hover:text-white flex items-center gap-1.5 duration-300 ease-in-out transition-all hover:font-medium"
+              href={menuListItem.href}
+              key={i}
+            >
+              {menuListItem.label}{" "}
+              <svg
+                className="size-3 opacity-0 group-hover:opacity-100 duration-300 ease-in-out transition-all"
+                viewBox="0 0 16 16"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M12.175 9H0V7H12.175L6.575 1.4L8 0L16 8L8 16L6.575 14.6L12.175 9Z"
+                  fill="currentColor"
+                />
+              </svg>
+            </Link>
           ))}
         </ul>
       </div>
@@ -97,9 +131,9 @@ const Footer = () => {
                 <input
                   type="email"
                   placeholder="Email"
-                  className="w-full clamp-[h,44px,56px] clamp-[px,12px,18px] clamp-[py,12px,15px] clamp-[text,14px,16px] outline-0  border border-white bg-transparent placeholder:text-white "
+                  className="w-full clamp-[h,44px,56px] clamp-[px,12px,18px] clamp-[py,12px,15px] clamp-[text,14px,16px] outline-0  border-y border-l border-white bg-transparent placeholder:text-white "
                 />
-                <div className="bg-red  clamp-[p,10px,16px]">
+                <div className="bg-red hover:bg-deep-red duration-300 ease-in-out transition-all cursor-pointer flex items-center clamp-[px,10px,16px]">
                   <RightArrow fill="white" />
                 </div>
               </div>
@@ -132,44 +166,58 @@ const Footer = () => {
             <FooterMenuList
               label="Our Work"
               menuListItems={[
-                "Research",
-                "Projects",
-                "Papers",
-                "Policy",
-                "Discussion Papers",
-                "Policy Briefs",
-                "Case Studies",
+                { label: "Research", href: "/research" },
+                { label: "Projects", href: "/research" },
+                { label: "Papers", href: "/research" },
+                { label: "Policy", href: "/policy" },
+                { label: "Discussion Papers", href: "/policy/documents" },
+                { label: "Policy Briefs", href: "/policy/documents" },
+                { label: "Case Studies", href: "/policy/documents" },
               ]}
             />
             {/* Insights */}
             <FooterMenuList
               label="Insights"
               menuListItems={[
-                "Featured",
-                "Op-Eds",
-                "Bulletin",
-                "Blog",
-                "Newsletter",
-                "Viewpoints",
+                { label: "Featured", href: "/insights?tab=featured" },
+                { label: "Op-Eds", href: "/insights?tab=op-eds" },
+                { label: "Bulletin", href: "/insights?tab=bullets" },
+                { label: "Blog", href: "/insights?tab=blog" },
+                { label: "Newsletter", href: "/insights?tab=newsletter" },
+                { label: "Viewpoints", href: "/insights?tab=viewpoints" },
               ]}
             />
-
             {/* About Us */}
             <FooterMenuList
               label="About Us"
               menuListItems={[
-                "Our Story",
-                "Advisory Board",
-                "Our Team",
-                "Fellows",
-                "Life at ICPP",
+                { label: "Our Story", href: "/about-us/our-story" },
+                {
+                  label: "Advisory Board",
+                  href: "/about-us/our-story/advisory-board",
+                },
+                { label: "Our Team", href: "/about-us/our-story/our-team" },
+                { label: "Fellows", href: "/about-us/our-story/fellows" },
+                {
+                  label: "Life at ICPP",
+                  href: "/about-us/life-at-icpp",
+                },
               ]}
             />
 
             <div className="clamp-[gap,10px,20px] flex flex-col">
               <FooterMenuList
                 label="Events"
-                menuListItems={["Events at ICPP", "The ICPP Conference"]}
+                menuListItems={[
+                  {
+                    label: "Events at ICPP",
+                    href: "/events-at-icpp/upcoming-event",
+                  },
+                  {
+                    label: "The ICPP Conference",
+                    href: "the-icpp-conference",
+                  },
+                ]}
               />
               <FooterMenuList label="Contact Us" />
             </div>

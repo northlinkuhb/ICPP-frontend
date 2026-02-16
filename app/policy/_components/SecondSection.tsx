@@ -3,6 +3,7 @@ import Image from "next/image";
 import React from "react";
 import second from "@public/media.png";
 import test from "@public/research/research4.png";
+import CardAnimation from "@/components/animations/CardAnimation";
 const SecondSection = () => {
   const datas = [
     {
@@ -65,8 +66,8 @@ const SecondSection = () => {
           <div className="h-auto w-[1px] bg-[#AEB6B9]"></div>
           <div className="2xl:w-[45%] lg:w-[50%]">
             {datas.slice(1, 4).map((item, i) => (
-              <>
-                <div key={i} className="flex clamp-[gap,12px,23px] ">
+              <CardAnimation index={i} delay={0.1} key={i}>
+                <div className="flex clamp-[gap,12px,23px] ">
                   <div className="clamp-[w,78px,192px] relative shrink-0 clamp-[h,78px,144px]">
                     {" "}
                     <Image
@@ -91,8 +92,10 @@ const SecondSection = () => {
                     </p>
                   </div>
                 </div>
-                <div className="h-[1px] last:hidden w-full my-[2.5rem] bg-[#AEB6B9]"></div>
-              </>
+                {i !== datas.length - 2 && (
+                  <div className="h-[1px] w-full my-[2.5rem] bg-[#AEB6B9]"></div>
+                )}{" "}
+              </CardAnimation>
             ))}
           </div>
         </div>

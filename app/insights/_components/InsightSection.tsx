@@ -4,6 +4,8 @@ import Image from "next/image";
 import vector from "@public/png/Vector.png";
 import test from "@public/research/research4.png";
 import CustomInput from "@/components/CustomInput";
+import CardAnimation from "@/components/animations/CardAnimation";
+import TextStaggerAnimation from "@/components/animations/TextStaggerAnimation";
 
 type Props = {
   allTitle: string;
@@ -46,7 +48,7 @@ const InsightSection = ({ allTitle }: Props) => {
       {" "}
       <div className="clamp-[pt,20px,80px] clamp-[px,24px,80px]">
         <h2 className=" text-deep-blue clamp-[text,h2-m,h2-d] clamp-[leading,h2-m,h2-d] font-semibold">
-          Latest
+          <TextStaggerAnimation text="Latest" className=" flex flex-wrap" />
         </h2>
       </div>
       <div className="  ">
@@ -89,7 +91,10 @@ const InsightSection = ({ allTitle }: Props) => {
       <Image src={vector} alt="Vector" className="w-full" />
       <div className="clamp-[px,1.5rem,5rem] text-black relative clamp-[py,2.5rem,7.5rem]">
         <h2 className=" text-deep-blue clamp-[text,h2-m,h2-d] clamp-[leading,h2-m,h2-d] font-semibold">
-          All {allTitle}
+          <TextStaggerAnimation
+            text={`All ${allTitle}`}
+            className=" flex flex-wrap"
+          />
         </h2>
         <div className="flex clamp-[pt,20px,40px] lg:flex-row flex-col clamp-[text,12px,16px] clamp-[leading,18px,25px]  clamp-[gap,20px,50px]">
           <div className="clamp-[min-w,10.1875rem,25rem] sticky clamp-[top,4.5rem,8rem] z-50 bg-white h-full shrink-0">
@@ -132,7 +137,12 @@ const InsightSection = ({ allTitle }: Props) => {
           </div>
           <div className="flex flex-col clamp-[gap,20px,42.5px] w-full">
             {datas.map((item, i) => (
-              <div key={i} className="flex  clamp-[gap,12px,24px] ">
+              <CardAnimation
+                delay={0.1}
+                index={i}
+                key={i}
+                className="flex  clamp-[gap,12px,24px] "
+              >
                 <div className="clamp-[w,80px,320px] shrink-0 relative clamp-[h,80px,240px]">
                   <Image
                     src={item.image}
@@ -163,7 +173,7 @@ const InsightSection = ({ allTitle }: Props) => {
                     {item.date}
                   </p>
                 </div>
-              </div>
+              </CardAnimation>
             ))}
 
             <div className="w-full border-[#AEB6B9] clamp-[text,12px,16px] clamp-[leading,18px,25px]  border font-semibold text-center outline-none clamp-[px,12px,20px] clamp-[py,12px,16px]">

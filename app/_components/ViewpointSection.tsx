@@ -1,7 +1,7 @@
 import React from "react";
 import SectionHeader from "./SectionHeader";
 import { TViewpointCard } from "@/network/types/home.type";
-
+import CardAnimation from "@/components/animations/CardAnimation";
 
 interface ViewpointSectionProps {
   viewpointData: TViewpointCard[];
@@ -13,12 +13,12 @@ const ViewpointSection = ({ viewpointData }: ViewpointSectionProps) => {
       <SectionHeader
         title="Our Viewpoints"
         subtitle="Insights"
-        viewAllLink="#"
+        viewAllLink="/insights?tab=viewpoints"
       />
 
       <div className="clamp-[mt,24px,40px] grid grid-cols-1 md:grid-cols-2  lg:grid-cols-3 clamp-[gap,16px,20px]">
         {viewpointData.map((viewpoint, index) => (
-          <div key={index}>
+          <CardAnimation delay={0.1} index={index} key={index}>
             <div className="relative w-full clamp-[h,204px,310px] overflow-hidden ">
               <iframe
                 className="absolute inset-0 w-full h-full"
@@ -45,7 +45,7 @@ const ViewpointSection = ({ viewpointData }: ViewpointSectionProps) => {
             <div className="clamp-[text,caption1-m,caption1-d] clamp-[leading,caption1-m,caption1-d] clamp-[mt,4px,10px] text-gray">
               {viewpoint.createdAt}
             </div>
-          </div>
+          </CardAnimation>
         ))}
       </div>
     </div>

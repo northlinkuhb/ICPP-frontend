@@ -12,20 +12,17 @@ interface LeaderSectionProps {
   // You can add props here if needed
   advisoriesData: TAdvisoryCard[];
 }
-const LeaderSection: React.FC<LeaderSectionProps> = ({ 
-  advisoriesData 
-}) => {
-
+const LeaderSection: React.FC<LeaderSectionProps> = ({ advisoriesData }) => {
   return (
     <div className="bg-electric-blue">
       <div className="clamp-[py,40px,120px] clamp-[px,24px,80px] text-black clamp-[rounded-bl,20px,40px] bg-white">
         <div>
-          <SectionSubHeader subtitle="LEADERS OF ICPP"/>
+          <SectionSubHeader subtitle="LEADERS OF ICPP" />
           <hr className=" text-black w-full clamp-[mb,8px,40px]" />
           <div className="flex justify-between items-end">
             <div>
-              <SectionMainHeader label="The spark that started everything."/>
-              <SectionHeaderDescription description="The minds behind the mission; the architects of our purpose"/>
+              <SectionMainHeader label="The spark that started everything." />
+              <SectionHeaderDescription description="The minds behind the mission; the architects of our purpose" />
             </div>
           </div>
         </div>
@@ -35,7 +32,7 @@ const LeaderSection: React.FC<LeaderSectionProps> = ({
             <LeftArrow fill="gray" />
             <RightArrow fill="black" />
           </div>
-          <div className="underline clamp-[text,body3-m,body3-d] clamp-[leading,body3-m,body3-d] text-black">
+          <div className="underline clamp-[text,body3-m,body3-d] hover:text-electric-blue duration-300 ease-in-out transition-all clamp-[leading,body3-m,body3-d] text-black">
             View All
           </div>
         </div>

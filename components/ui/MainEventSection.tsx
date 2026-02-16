@@ -6,6 +6,9 @@ import icppEvent from "../../public/icpp-event.png";
 import PrimaryButton from "@/components/PrimaryButton";
 import Vector from "../../public/svg/Vector.svg";
 import { useRouter } from "next/navigation";
+import SectionSubHeader from "./SectionSubHeader";
+import AnimatedLine from "../animations/AnimatedLine";
+import TextStaggerAnimation from "../animations/TextStaggerAnimation";
 
 const MainEventSection = () => {
   const router = useRouter();
@@ -19,13 +22,14 @@ const MainEventSection = () => {
       <div className="2xl:col-span-4 relative col-span-6 clamp-[px,24px,80px] clamp-[py,48px,80px] bg-black text-white clamp-[rounded-br,20px,40px]">
         <div className="flex flex-col justify-between h-full">
           <div>
-            <div className="font-geist-mono clamp-[text,caption2-m,caption2-d] clamp-[leading,caption2-m,caption2-d] clamp-[mb,4px,10px]">
-              {"Events".toUpperCase()}
-            </div>
-            <hr />
+            <SectionSubHeader subtitle="Events" className="text-white" />
+            <AnimatedLine className="bg-white" />
             <div className="clamp-[text,h2-m,h2-d] clamp-[leading,h2-m,h2-d] font-semibold clamp-[mt,8px,20px]">
-              The ICPP Conference: A Summit of Ideas
-            </div> 
+              <TextStaggerAnimation
+                text="The ICPP Conference: A Summit of Ideas"
+                className="flex flex-wrap"
+              />
+            </div>
             <div className="clamp-[mt,8px,20px] clamp-[pb,30px,200px] clamp-[text,body2-m,body2-d] clamp-[leading,body2-m,body2-d]">
               The ICPP Annual Growth Conference brings together senior
               policymakers, leading academics, private sector experts, and civil
@@ -33,7 +37,7 @@ const MainEventSection = () => {
             </div>
           </div>
           <div>
-            <PrimaryButton text="Read More"  onClick={handleReadMore}/>
+            <PrimaryButton text="Read More" onClick={handleReadMore} />
           </div>
         </div>
         <Image

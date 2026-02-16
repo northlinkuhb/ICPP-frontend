@@ -11,6 +11,8 @@ import {
 import Autoplay from "embla-carousel-autoplay";
 import { TGallery } from "@/network/types/home.type";
 
+import { Fancybox as NativeFancybox } from "@fancyapps/ui";
+import "@fancyapps/ui/dist/fancybox/fancybox.css";
 interface GalleryCarouselProps {
   galleryImages: TGallery[];
 }
@@ -20,6 +22,14 @@ const GalleryCarousel = ({ galleryImages }: GalleryCarouselProps) => {
   const plugin = React.useRef<any>(
     Autoplay({ delay: 3000, stopOnInteraction: true }),
   );
+
+  React.useEffect(() => {
+    NativeFancybox.bind("[data-fancybox]");
+
+    return () => {
+      NativeFancybox.destroy();
+    };
+  }, []);
 
   return (
     <Carousel
@@ -33,17 +43,20 @@ const GalleryCarousel = ({ galleryImages }: GalleryCarouselProps) => {
     >
       <CarouselContent className="clamp-[ml,24px,80px] flex clamp-[h,297px,550px]">
         {galleryImages.map((image, index) => (
-          <CarouselItem
-            key={index}
-            className="basis-auto clamp-[mr,16px,20px]"
-          >
-            <Image
-              src={image.imageUrl}
-              alt={`gallery-${index + 1}`}
-              className="h-full w-auto"
-              width={550}
-              height={297}
-            />
+          <CarouselItem key={index} className="basis-auto clamp-[mr,16px,20px]">
+            <a
+              href={image.imageUrl}
+              data-fancybox="gallery"
+              data-caption={`Image ${index + 1}`}
+            >
+              <Image
+                src={image.imageUrl}
+                alt={`gallery-${index + 1}`}
+                className="h-full w-auto"
+                width={550}
+                height={297}
+              />
+            </a>
           </CarouselItem>
         ))}
       </CarouselContent>

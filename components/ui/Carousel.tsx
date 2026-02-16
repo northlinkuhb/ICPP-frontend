@@ -7,6 +7,7 @@ import useEmblaCarousel, {
 import { cn } from "../utils/tailwind";
 import LeftArrow from "../svg/LeftArrow";
 import RightArrow from "../svg/RightArrow";
+import { ButtonAnimation } from "../animations/ButtonAnimation";
 
 type CarouselApi = UseEmblaCarouselType[1];
 type UseCarouselParameters = Parameters<typeof useEmblaCarousel>;
@@ -200,14 +201,16 @@ const CarouselPrevious = React.forwardRef<
   const { scrollPrev } = useCarousel();
 
   return (
-    <div
-      ref={ref}
-      onClick={scrollPrev}
-      className="~size-[2.5rem]/[4rem] cursor-pointer relative flex items-center "
-      {...props}
-    >
-      <LeftArrow />
-    </div>
+    <ButtonAnimation>
+      <div
+        ref={ref}
+        onClick={scrollPrev}
+        className="~size-[2.5rem]/[4rem] cursor-pointer relative flex items-center "
+        {...props}
+      >
+        <LeftArrow />
+      </div>
+    </ButtonAnimation>
   );
 });
 CarouselPrevious.displayName = "CarouselPrevious";
@@ -219,14 +222,16 @@ const CarouselNext = React.forwardRef<
   const { scrollNext } = useCarousel();
 
   return (
-    <div
-      ref={ref}
-      onClick={scrollNext}
-      className="~size-[2.5rem]/[4rem]  cursor-pointer relative flex items-center  "
-      {...props}
-    >
-      <RightArrow />
-    </div>
+    <ButtonAnimation>
+      <div
+        ref={ref}
+        onClick={scrollNext}
+        className="~size-[2.5rem]/[4rem]  cursor-pointer relative flex items-center  "
+        {...props}
+      >
+        <RightArrow />
+      </div>
+    </ButtonAnimation>
   );
 });
 CarouselNext.displayName = "CarouselNext";

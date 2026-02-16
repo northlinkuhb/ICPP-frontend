@@ -1,33 +1,32 @@
 @import "tailwindcss";
 @plugin "tailwind-clamp" {
-  minSize: 320px;
-  maxSize: 1920px;
+  minsize: 320px;
+  maxsize: 1920px;
 }
-
 
 :root {
   --background: #ffffff;
   --foreground: #171717;
-
 }
 
 @theme {
   --font-geist-sans: var(--font-geist-sans);
   --font-geist-mono: var(--font-geist-mono);
 
-  --color-deep-blue: #002B5E;
-  --color-red: #BC173B;
-  --color-electric-blue: #1893C9;
+  --color-deep-blue: #002b5e;
+  --color-red: #bc173b;
+  --color-deep-red: #a70e13;
+  --color-electric-blue: #1893c9;
   --color-black: #131516;
-  --color-white: #FFFFFF;
+  --color-white: #ffffff;
 
-  --color-light-blue: #C1DEEB;
-  --color-gray: #898F92;
-  --color-light-gray: #AEB6B9;
+  --color-light-blue: #c1deeb;
+  --color-gray: #898f92;
+  --color-light-gray: #aeb6b9;
 
   --text-h1-d: 64px;
   --leading-h1-d: 70px;
-  
+
   --text-h2-d: 56px;
   --leading-h2-d: 64px;
 
@@ -89,7 +88,6 @@
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-
 }
 
 @media (prefers-color-scheme: dark) {
@@ -225,6 +223,9 @@ body {
     opacity: 1;
     transform: translateY(0);
   }
+}
+.f-caption {
+  display: none !important;
 }
 
 .animate-fadeIn {

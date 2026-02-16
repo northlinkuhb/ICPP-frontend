@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
+import MainHeader from "@/components/ui/SectionMainHeader";
 
 const formSchema = z.object({
   // contactType: z.enum(["collaborate", "curious"], {
@@ -64,9 +65,7 @@ const FormSection = () => {
   return (
     <div className="clamp-[px,24px,80px] clamp-[py,40px,120px] bg-white">
       <div>
-        <h2 className="text-deep-blue clamp-[text,h2-m,h2-d] clamp-[leading,h2-m,h2-d] font-semibold">
-          Get in Touch
-        </h2>
+        <MainHeader label="Get in Touch" />
         <form onSubmit={handleSubmit(onSubmit)}>
           <div className="flex lg:flex-row flex-col clamp-[pt,24px,40px] text-black clamp-[text,16px,24px] clamp-[leading,23px,36px]  clamp-[gap,20px,50px]">
             <div className="clamp-[min-w,10.1875rem,25rem] md:sticky clamp-[top,4.5rem,8rem] space-y-[8px] z-50 bg-white h-full shrink-0">

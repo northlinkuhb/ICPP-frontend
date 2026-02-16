@@ -4,6 +4,8 @@ import "./globals.css";
 import Header from "./_layout/Header";
 import Footer from "./_layout/Footer";
 import Preloader from "@/components/PreLoader";
+import IphoneViewportGuard from "@/providers/IphoneViewportGuard";
+import ProgressProvider from "@/providers/ProgressProvider";
 
 const geistSans = Geist({
   subsets: ["latin"],
@@ -31,10 +33,14 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} font-geist-sans antialiased`}
       >
-        <Preloader />
-        <Header />
-        {children}
-        <Footer />
+        {" "}
+        <ProgressProvider>
+          <Preloader />
+          <IphoneViewportGuard />
+          <Header />
+          {children}
+          <Footer />
+        </ProgressProvider>
       </body>
     </html>
   );

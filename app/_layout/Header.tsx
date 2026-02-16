@@ -242,10 +242,14 @@ const Header = () => {
                 {openMenuItems.ourWork && (
                   <div className="flex flex-col gap-[12px] pl-[16px] py-[10px] border-l-2 border-light-gray">
                     <Link href="/research" onClick={() => setIsOpen(false)}>
-                      <div className="cursor-pointer clamp-[text,body2-m,body2-d]">Research</div>
+                      <div className="cursor-pointer clamp-[text,body2-m,body2-d]">
+                        Research
+                      </div>
                     </Link>
                     <Link href="/policy" onClick={() => setIsOpen(false)}>
-                      <div className="cursor-pointer clamp-[text,body2-m,body2-d]">Policy</div>
+                      <div className="cursor-pointer clamp-[text,body2-m,body2-d]">
+                        Policy
+                      </div>
                     </Link>
                   </div>
                 )}
@@ -267,7 +271,9 @@ const Header = () => {
                 {openMenuItems.insights && (
                   <div className="flex flex-col gap-[12px] pl-[16px] py-[10px] border-l-2 border-light-gray">
                     <Link href="/insights" onClick={() => setIsOpen(false)}>
-                      <div className="cursor-pointer clamp-[text,body2-m,body2-d]">All Insights</div>
+                      <div className="cursor-pointer clamp-[text,body2-m,body2-d]">
+                        All Insights
+                      </div>
                     </Link>
                   </div>
                 )}
@@ -288,11 +294,21 @@ const Header = () => {
                 </button>
                 {openMenuItems.aboutUs && (
                   <div className="flex flex-col gap-[12px] pl-[16px] py-[10px] border-l-2 border-light-gray">
-                    <Link href="/about-us/our-story" onClick={() => setIsOpen(false)}>
-                      <div className="cursor-pointer clamp-[text,body2-m,body2-d]">Our Story</div>
+                    <Link
+                      href="/about-us/our-story"
+                      onClick={() => setIsOpen(false)}
+                    >
+                      <div className="cursor-pointer clamp-[text,body2-m,body2-d]">
+                        Our Story
+                      </div>
                     </Link>
-                    <Link href="/about-us/life-at-icpp" onClick={() => setIsOpen(false)}>
-                      <div className="cursor-pointer clamp-[text,body2-m,body2-d]">Life at ICPP</div>
+                    <Link
+                      href="/about-us/life-at-icpp"
+                      onClick={() => setIsOpen(false)}
+                    >
+                      <div className="cursor-pointer clamp-[text,body2-m,body2-d]">
+                        Life at ICPP
+                      </div>
                     </Link>
                   </div>
                 )}
@@ -313,11 +329,21 @@ const Header = () => {
                 </button>
                 {openMenuItems.events && (
                   <div className="flex flex-col gap-[12px] pl-[16px] py-[10px] border-l-2 border-light-gray">
-                    <Link href="/events-at-icpp/upcoming-event" onClick={() => setIsOpen(false)}>
-                      <div className="cursor-pointer clamp-[text,body2-m,body2-d]">Upcoming Events</div>
+                    <Link
+                      href="/events-at-icpp/upcoming-event"
+                      onClick={() => setIsOpen(false)}
+                    >
+                      <div className="cursor-pointer clamp-[text,body2-m,body2-d]">
+                        Upcoming Events
+                      </div>
                     </Link>
-                    <Link href="/events-at-icpp/past-events" onClick={() => setIsOpen(false)}>
-                      <div className="cursor-pointer clamp-[text,body2-m,body2-d]">Past Events</div>
+                    <Link
+                      href="/events-at-icpp/past-events"
+                      onClick={() => setIsOpen(false)}
+                    >
+                      <div className="cursor-pointer clamp-[text,body2-m,body2-d]">
+                        Past Events
+                      </div>
                     </Link>
                   </div>
                 )}

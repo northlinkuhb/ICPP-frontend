@@ -5,6 +5,7 @@ import Image from "next/image";
 import second from "@public/media.png";
 import test from "@public/research/research4.png";
 import CustomInput from "@/components/CustomInput";
+import CardAnimation from "@/components/animations/CardAnimation";
 const PolicySection = () => {
   const datas = [
     {
@@ -77,7 +78,12 @@ const PolicySection = () => {
         </div>
         <div className="flex flex-col clamp-[gap,20px,42.5px] w-full">
           {datas.map((item, i) => (
-            <div key={i} className="flex  clamp-[gap,12px,24px] ">
+            <CardAnimation
+              delay={0.1}
+              index={i}
+              key={i}
+              className="flex  clamp-[gap,12px,24px] "
+            >
               <div className="clamp-[w,80px,320px] shrink-0 relative clamp-[h,80px,240px]">
                 <Image src={item.image} alt="" fill className="object-cover" />
               </div>
@@ -103,7 +109,7 @@ const PolicySection = () => {
                   {item.date}
                 </p>
               </div>
-            </div>
+            </CardAnimation>
           ))}
 
           <div className="w-full border-[#AEB6B9] clamp-[text,12px,16px] clamp-[leading,18px,25px]  border font-semibold text-center outline-none clamp-[px,12px,20px] clamp-[py,12px,16px]">

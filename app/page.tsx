@@ -10,18 +10,19 @@ import MainEventSection from "../components/ui/MainEventSection";
 import MediaSection from "./_components/MediaSection";
 import { HomeApi } from "@/network/api/home.api";
 const page = async () => {
-
   const homepageApiData = await HomeApi.getHomePageData();
 
   return (
     <>
       <HeroSection slides={homepageApiData.banners} />
 
-      {/* Who and What Section */}
       <WhoAndWhatSection />
 
       {/* Our Work Section */}
-      <OurWorkSection policyData={homepageApiData.policies} researchData={homepageApiData.researches} />
+      <OurWorkSection
+        policyData={homepageApiData.policies}
+        researchData={homepageApiData.researches}
+      />
 
       {/* Image Gallery */}
       <GalleryHomeSection dataGallery={homepageApiData.eventsGallery} />
@@ -35,10 +36,8 @@ const page = async () => {
       {/* Insights Section */}
       <ViewpointSection viewpointData={homepageApiData.viewpoints} />
 
-      {/* ICPP Main Event */}
       <MainEventSection />
 
-      {/* Media Highlights */}
       <MediaSection mediaData={homepageApiData.medias} />
     </>
   );

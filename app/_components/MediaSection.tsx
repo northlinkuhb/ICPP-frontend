@@ -2,6 +2,7 @@ import React from "react";
 import Image from "next/image";
 import SectionHeader from "./SectionHeader";
 import { TMediaCard } from "@/network/types/home.type";
+import CardAnimation from "@/components/animations/CardAnimation";
 
 
 interface MediaSectionProps {
@@ -19,7 +20,7 @@ const MediaSection: React.FC<MediaSectionProps> = ({ mediaData }) => {
       />
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 clamp-[gap,16px,20px] clamp-[pt,24px,40px]">
         {items.map((item, idx) => (
-          <div key={idx}>
+          <CardAnimation delay={0.1} index={idx} key={idx}>
            <div className="clamp-[h,204px,310px] relative w-full"> <Image src={item.imageUrl} alt={item.title} priority fill className="w-full" /></div>
             <div className="clamp-[text,h4-m,h4-d] clamp-[leading,h4-m,h4-d] font-semibold text-black clamp-[mt,12px,20px] line-clamp-2">
               {item.title}
@@ -27,7 +28,7 @@ const MediaSection: React.FC<MediaSectionProps> = ({ mediaData }) => {
             <div className="clamp-[mt,4px,10px] text-gray clamp-[text,body3-m,body3-d] clamp-[leading,body3-m,body3-d] line-clamp-4">
               {item.description}
             </div>
-          </div>
+          </CardAnimation>
         ))}
       </div>
     </div>
