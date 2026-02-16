@@ -91,7 +91,7 @@ const page = async () => {
         <hr className="text-white clamp-[mx,24px,80px]" />
         <div className="flex justify-between items-end text-white clamp-[pt,16px,40px] clamp-[pb,24px,40px] clamp-[px,24px,80px]">
           <div className="font-semibold clamp-[text,h2-m,h2-d] clamp-[leading,h2-m,h2-d]">
-            Events at ICPP
+            Life at ICPP
           </div>
           <div className="underline clamp-[text,caption2-m,caption2-d] clamp-[leading,caption2-m,caption2-d]">
             View All

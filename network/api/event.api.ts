@@ -8,27 +8,47 @@ export const EventApi = {
             eventsGallery:[
                 {
                     id: "1",
-                    imageUrl: "/gallery/gallery-potrait.png",
+                    imageUrl: "/gallery/common-events/common_event_1.jpg",
                 },
                 {
                     id: "2",
-                    imageUrl: "/gallery/gallery-landscape.png",
+                    imageUrl: "/gallery/common-events/common_event_2.jpg",
                 },
                 {
                     id: "3",
-                    imageUrl: "/gallery/gallery3.png",
+                    imageUrl: "/gallery/common-events/common_event_3.jpg",
                 },
                 {
                     id: "4",
-                    imageUrl: "/gallery/gallery4.png",
+                    imageUrl: "/gallery/common-events/common_event_4.jpg",
                 },
                 {
                     id: "5",
-                    imageUrl: "/gallery/gallery5.png",
+                    imageUrl: "/gallery/common-events/common_event_5.jpg",
                 },
                 {
                     id: "6",
-                    imageUrl: "/gallery/gallery6.png",
+                    imageUrl: "/gallery/common-events/common_event_6.jpg",
+                },
+                {
+                    id: "7",
+                    imageUrl: "/gallery/common-events/common_event_7.jpg",
+                },
+                {
+                    id: "8",
+                    imageUrl: "/gallery/common-events/common_event_8.jpg",
+                },
+                {
+                    id: "9",
+                    imageUrl: "/gallery/common-events/common_event_9.jpg",
+                },
+                {
+                    id: "10",
+                    imageUrl: "/gallery/common-events/common_event_10.jpg",
+                },
+                {
+                    id: "11",
+                    imageUrl: "/gallery/common-events/common_event_11.jpg",
                 },
             ],
             pastEvents: [

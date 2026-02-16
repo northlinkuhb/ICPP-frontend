@@ -211,51 +211,51 @@ export const AboutApi = {
             commonGallery:[
                 {
                     id: "1",
-                    imageUrl: "/gallery/gallery-potrait.png",
+                    imageUrl: "/gallery/life-at-icpp/1.png",
                 },
                 {
                     id: "2",
-                    imageUrl: "/gallery/gallery-landscape.png",
+                    imageUrl: "/gallery/life-at-icpp/2.jpg",
                 },
                 {
                     id: "3",
-                    imageUrl: "/gallery/gallery3.png",
+                    imageUrl: "/gallery/life-at-icpp/3.jpg",
                 },
                 {
                     id: "4",
-                    imageUrl: "/gallery/gallery4.png",
+                    imageUrl: "/gallery/life-at-icpp/4.jpg",
                 },
                 {
                     id: "5",
-                    imageUrl: "/gallery/gallery5.png",
+                    imageUrl: "/gallery/life-at-icpp/5.jpeg",
                 },
                 {
                     id: "6",
-                    imageUrl: "/gallery/gallery6.png",
+                    imageUrl: "/gallery/life-at-icpp/6.jpg",
                 },
                 {
                     id: "7",
-                    imageUrl: "/gallery/gallery-potrait.png",
+                    imageUrl: "/gallery/life-at-icpp/7.jpg",
                 },
                 {
                     id: "8",
-                    imageUrl: "/gallery/gallery-landscape.png",
+                    imageUrl: "/gallery/life-at-icpp/8.jpg",
                 },
                 {
                     id: "9",
-                    imageUrl: "/gallery/gallery3.png",
+                    imageUrl: "/gallery/life-at-icpp/9.jpg",
                 },
                 {
                     id: "10",
-                    imageUrl: "/gallery/gallery4.png",
+                    imageUrl: "/gallery/life-at-icpp/10.jpg",
                 },
                 {
                     id: "11",
-                    imageUrl: "/gallery/gallery5.png",
+                    imageUrl: "/gallery/life-at-icpp/11.jpg",
                 },
                 {
                     id: "12",
-                    imageUrl: "/gallery/gallery6.png",
+                    imageUrl: "/gallery/life-at-icpp/12.jpg",
                 },
             ],
             testimonials: [
